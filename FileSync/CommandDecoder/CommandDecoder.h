@@ -38,5 +38,5 @@ private:
 
     std::vector<CommandArgument> commandArguments;
 
-    void ParseOrigin(int argc, char* argv[], const std::string& first_argument);
+    bool ParseOneParam(int argc, char* argv[], const std::string& first_argument, Command param_name);
 };

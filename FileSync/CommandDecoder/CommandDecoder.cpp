@@ -6,7 +6,8 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
     
     if (commands.count(first_argument) > 0)
     {
-        ParseOrigin(argc, argv, first_argument);
+        if (ParseOneParam(argc, argv, first_argument, Command::origin)) return;
+        if (ParseOneParam(argc, argv, first_argument, Command::target)) return;
     }
 }
 
@@ -15,20 +16,23 @@ std::vector<CommandArgument> CommandDecoder::GetCommands()
     return commandArguments;
 }
 
-void CommandDecoder::ParseOrigin(int argc, char* argv[], const std::string& first_argument)
+bool CommandDecoder::ParseOneParam(int argc, char* argv[], const std::string& first_argument, Command param_name)
 {
-
     if (argc >= 3)
     {
-        if (commands.find(first_argument)->second == Command::origin)
+        if (commands.find(first_argument)->second == param_name)
         {
             CommandArgument argument;
             
-            argument.command = Command::origin;
+            argument.command = param_name;
 
             argument.arguments.insert(argv[2]);
 
             commandArguments.push_back(argument);
+
+            return true;
         }
     }
+
+    return false;
 }
