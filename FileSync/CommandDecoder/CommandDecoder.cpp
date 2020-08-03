@@ -28,6 +28,7 @@ bool CommandDecoder::ParseOneParam(int argc, char* argv[], const std::string& fi
 
             argument.arguments.insert(argv[2]);
 
+            // Need replace with : Add command argument to controller
             commandArguments.push_back(argument);
 
             return true;
