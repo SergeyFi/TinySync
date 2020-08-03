@@ -16,8 +16,8 @@ enum class Command
     help
 };
 
-struct CommandArgument
+struct Commands
 {
-    Command command;
-    std::set<std::string> arguments;
+    std::vector<Command> commands;
+    std::vector<std::string> arguments;
 };

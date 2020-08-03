@@ -2,38 +2,21 @@
 
 void CommandDecoder::AddRawData(int argc, char* argv[])
 {
-    const std::string first_argument = argv[1];
+    Commands command;
     
-    if (commands.count(first_argument) > 0)
+    for (int i = 1; i < argc; ++i)
     {
-        if (ParseOneParam(argc, argv, first_argument, Command::origin)) return;
-        if (ParseOneParam(argc, argv, first_argument, Command::target)) return;
-    }
-}
+        const std::string current_argument = argv[i];
 
-std::vector<CommandArgument> CommandDecoder::GetCommands()
-{
-    return commandArguments;
-}
-
-bool CommandDecoder::ParseOneParam(int argc, char* argv[], const std::string& first_argument, Command param_name)
-{
-    if (argc >= 3)
-    {
-        if (commands.find(first_argument)->second == param_name)
+        if (commands.count(current_argument) > 0)
         {
-            CommandArgument argument;
-            
-            argument.command = param_name;
-
-            argument.arguments.insert(argv[2]);
-
-            // Need replace with : Add command argument to controller
-            commandArguments.push_back(argument);
-
-            return true;
+            command.commands.push_back(commands.find(current_argument)->second);
+        }
+        else
+        {
+            command.arguments.push_back(current_argument);
         }
     }
 
-    return false;
+    // Need transfer command to controller
 }

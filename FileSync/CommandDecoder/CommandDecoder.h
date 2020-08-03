@@ -12,8 +12,6 @@ public:
 
     void AddRawData(int argc, char* argv[]) override;
 
-    std::vector<CommandArgument> GetCommands() override;
-
 private:
 
     const std::map<std::string, Command> commands
@@ -35,8 +33,4 @@ private:
         {{"-H"} ,Command::help},
         {{"--help"} ,Command::help}
     };
-
-    std::vector<CommandArgument> commandArguments;
-
-    bool ParseOneParam(int argc, char* argv[], const std::string& first_argument, Command param_name);
 };
