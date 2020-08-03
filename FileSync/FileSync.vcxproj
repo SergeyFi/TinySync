@@ -155,11 +155,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileSync.cpp" />
-    <ClCompile Include="InputManager\InputManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="InputManager\InputManager.h" />
-    <ClInclude Include="InputManager\InputManagerInterface.h" />
     <ClInclude Include="SyncManager\Filter.h" />
     <ClInclude Include="SyncManager\SyncInterface.h" />
   </ItemGroup>
