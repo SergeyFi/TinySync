@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <map>
+#include <string>
 #include <vector>
 
 
@@ -35,17 +36,7 @@ private:
         {{"--help"} ,Command::help}
     };
 
-    const std::map<Command, int> commands_arg_count
-    {
-        {Command::origin, 1},
-        {Command::target, 1},
-        {Command::filter, -1},
-        {Command::inverted, 0},
-        {Command::sync, 0},
-        {Command::clean, 0},
-        {Command::balance, 0},
-        {Command::help, 0}
-    };
-
     std::vector<CommandArgument> commandArguments;
+
+    void ParseOrigin(int argc, char* argv[], const std::string& first_argument);
 };

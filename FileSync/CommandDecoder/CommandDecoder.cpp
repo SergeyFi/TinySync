@@ -2,30 +2,33 @@
 
 void CommandDecoder::AddRawData(int argc, char* argv[])
 {
-    const auto arg_count = 3;
+    const std::string first_argument = argv[1];
     
-    for (int i = 1; i < argc; ++i)
+    if (commands.count(first_argument) > 0)
     {
-        CommandArgument command_new;
-        
-        auto& raw_argument = argv[i];
-
-        if (commands.count(raw_argument) > 0)
-        {
-            const auto current_command = commands.find(raw_argument)->second;
-
-            if (current_command == Command::origin)
-            {
-                if (argc > arg_count)
-                {
-                    
-                }
-            }
-        }
+        ParseOrigin(argc, argv, first_argument);
     }
 }
 
 std::vector<CommandArgument> CommandDecoder::GetCommands()
 {
     return commandArguments;
+}
+
+void CommandDecoder::ParseOrigin(int argc, char* argv[], const std::string& first_argument)
+{
+
+    if (argc >= 3)
+    {
+        if (commands.find(first_argument)->second == Command::origin)
+        {
+            CommandArgument argument;
+            
+            argument.command = Command::origin;
+
+            argument.arguments.insert(argv[2]);
+
+            commandArguments.push_back(argument);
+        }
+    }
 }
