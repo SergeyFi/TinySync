@@ -154,9 +154,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CommandDecoder\CommandDecoder.cpp" />
     <ClCompile Include="FileSync.cpp" />
+    <ClCompile Include="InputManager\InputManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommandDecoder\Command.h" />
+    <ClInclude Include="CommandDecoder\CommandDecoder.h" />
+    <ClInclude Include="CommandDecoder\CommandDecoderInterface.h" />
+    <ClInclude Include="InputManager\InputManager.h" />
+    <ClInclude Include="InputManager\InputManagerInterface.h" />
     <ClInclude Include="SyncManager\Filter.h" />
     <ClInclude Include="SyncManager\SyncInterface.h" />
   </ItemGroup>
