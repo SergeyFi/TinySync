@@ -15,9 +15,9 @@ int main(int argc, char* argv[])
 
     std::shared_ptr<IController> Sync_controller{new Controller(true ,Input_manager, Output_manager)};
 
-    Sync_controller->InputConsoleArgument(argc, argv);
-
     Input_manager->AddController(Sync_controller);
+
+    Sync_controller->InputConsoleArgument(argc, argv);
 
     return 0;
 }

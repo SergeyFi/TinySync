@@ -5,5 +5,5 @@
 void OutputManager::PrintCommand(Commands& command)
 {
     std::cout << "Hello !";
-    std::cin.get();
+    //std::cin.get();
 }

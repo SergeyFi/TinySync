@@ -23,8 +23,6 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
         }
     }
 
-    // Need transfer command to controller
-
     if (Controller)
     {
         Controller->InputCommand(command);
