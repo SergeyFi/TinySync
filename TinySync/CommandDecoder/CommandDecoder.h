@@ -6,7 +6,7 @@
 
 #include "ICommandDecoder.h"
 
-class CommandDecoder : ICommandDecoder
+class CommandDecoder : public ICommandDecoder
 {
 public:
 
