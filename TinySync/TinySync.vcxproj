@@ -167,7 +167,7 @@
     <ClInclude Include="CommandDecoder\CommandDecoder.h" />
     <ClInclude Include="CommandDecoder\CommandDecoderInterface.h" />
     <ClInclude Include="Controller\Controller.h" />
-    <ClInclude Include="Controller\ControllerInterface.h" />
+    <ClInclude Include="Controller\IController.h" />
     <ClInclude Include="InputManager\InputManager.h" />
     <ClInclude Include="InputManager\IInputManager.h" />
     <ClInclude Include="OutputManager\OutputManager.h" />

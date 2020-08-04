@@ -1,10 +1,10 @@
 ﻿#pragma once
 
 #include <memory>
-#include "ControllerInterface.h"
+#include "IController.h"
 #include "../InputManager/IInputManager.h"
 
-class Controller : public ControllerInterface
+class Controller : public IController
 {
 public:
 
