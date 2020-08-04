@@ -17,5 +17,7 @@ int main(int argc, char* argv[])
 
     Sync_controller->InputConsoleArgument(argc, argv);
 
+    Input_manager->AddController(Sync_controller);
+
     return 0;
 }

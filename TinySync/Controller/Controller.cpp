@@ -15,4 +15,8 @@ void Controller::InputConsoleArgument(int argc, char* argv[])
 
 void Controller::InputCommand(Command command)
 {
+    if (debug)
+    {
+        Output_manager->PrintCommand(command);
+    }
 }

@@ -9,3 +9,8 @@ void InputManager::InputArguments(int argc, char* argv[])
 {
     Command_decoder->AddRawData(argc, argv);
 }
+
+void InputManager::AddController(std::weak_ptr<IController> Controller)
+{
+    Controller_ = Controller;
+}
