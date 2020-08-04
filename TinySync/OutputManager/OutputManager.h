@@ -3,5 +3,4 @@
 class OutputManager
 {
 public:
-    
 };

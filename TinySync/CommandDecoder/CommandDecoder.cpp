@@ -3,7 +3,7 @@
 void CommandDecoder::AddRawData(int argc, char* argv[])
 {
     Commands command;
-    
+
     for (int i = 1; i < argc; ++i)
     {
         const std::string current_argument = argv[i];

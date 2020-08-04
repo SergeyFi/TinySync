@@ -1,7 +1,6 @@
 ﻿#pragma once
 
-class Controller
+class OutputManagerInterface
 {
 public:
-    
 };

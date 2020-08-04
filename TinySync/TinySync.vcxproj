@@ -28,6 +28,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <RootNamespace>TinySync</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -156,7 +157,7 @@
   <ItemGroup>
     <ClCompile Include="CommandDecoder\CommandDecoder.cpp" />
     <ClCompile Include="Controller\Controller.cpp" />
-    <ClCompile Include="FileSync.cpp" />
+    <ClCompile Include="TinySync.cpp" />
     <ClCompile Include="InputManager\InputManager.cpp" />
     <ClCompile Include="OutputManager\OutputManager.cpp" />
     <ClCompile Include="OutputManager\OutputManagerInterface.cpp" />
@@ -168,7 +169,7 @@
     <ClInclude Include="Controller\Controller.h" />
     <ClInclude Include="Controller\ControllerInterface.h" />
     <ClInclude Include="InputManager\InputManager.h" />
-    <ClInclude Include="InputManager\InputManagerInterface.h" />
+    <ClInclude Include="InputManager\IInputManager.h" />
     <ClInclude Include="OutputManager\OutputManager.h" />
     <ClInclude Include="OutputManager\OutputManagerInterface.h" />
     <ClInclude Include="SyncManager\Filter.h" />

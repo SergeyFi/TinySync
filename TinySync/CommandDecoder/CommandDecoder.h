@@ -24,13 +24,13 @@ private:
         {{"--filter"}, Command::filter},
         {{"-I"}, Command::inverted},
         {{"--inverted"}, Command::inverted},
-        {{"-S"} ,Command::sync},
-        {{"--sync"} ,Command::sync},
-        {{"-C"} ,Command::clean},
-        {{ "--clean"} ,Command::clean},
-        {{"-B"} ,Command::balance},
-        {{"--balance"} ,Command::balance},
-        {{"-H"} ,Command::help},
-        {{"--help"} ,Command::help}
+        {{"-S"}, Command::sync},
+        {{"--sync"}, Command::sync},
+        {{"-C"}, Command::clean},
+        {{"--clean"}, Command::clean},
+        {{"-B"}, Command::balance},
+        {{"--balance"}, Command::balance},
+        {{"-H"}, Command::help},
+        {{"--help"}, Command::help}
     };
 };
