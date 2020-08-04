@@ -4,9 +4,9 @@
 #include <vector>
 
 
-#include "CommandDecoderInterface.h"
+#include "ICommandDecoder.h"
 
-class CommandDecoder : CommandDecoderInterface
+class CommandDecoder : ICommandDecoder
 {
 public:
 

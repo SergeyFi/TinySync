@@ -165,7 +165,7 @@
   <ItemGroup>
     <ClInclude Include="CommandDecoder\Command.h" />
     <ClInclude Include="CommandDecoder\CommandDecoder.h" />
-    <ClInclude Include="CommandDecoder\CommandDecoderInterface.h" />
+    <ClInclude Include="CommandDecoder\ICommandDecoder.h" />
     <ClInclude Include="Controller\Controller.h" />
     <ClInclude Include="Controller\IController.h" />
     <ClInclude Include="InputManager\InputManager.h" />
