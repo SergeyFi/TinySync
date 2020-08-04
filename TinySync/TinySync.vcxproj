@@ -160,7 +160,6 @@
     <ClCompile Include="TinySync.cpp" />
     <ClCompile Include="InputManager\InputManager.cpp" />
     <ClCompile Include="OutputManager\OutputManager.cpp" />
-    <ClCompile Include="OutputManager\OutputManagerInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommandDecoder\Command.h" />
@@ -171,7 +170,7 @@
     <ClInclude Include="InputManager\InputManager.h" />
     <ClInclude Include="InputManager\IInputManager.h" />
     <ClInclude Include="OutputManager\OutputManager.h" />
-    <ClInclude Include="OutputManager\OutputManagerInterface.h" />
+    <ClInclude Include="OutputManager\IOutputManager.h" />
     <ClInclude Include="SyncManager\Filter.h" />
     <ClInclude Include="SyncManager\SyncInterface.h" />
   </ItemGroup>

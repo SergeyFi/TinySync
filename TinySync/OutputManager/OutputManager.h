@@ -1,6 +1,7 @@
 ﻿#pragma once
+#include "IOutputManager.h"
 
-class OutputManager
+class OutputManager : public IOutputManager
 {
 public:
 };

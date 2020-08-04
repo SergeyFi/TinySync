@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-class OutputManagerInterface
+class IOutputManager
 {
 public:
 };
