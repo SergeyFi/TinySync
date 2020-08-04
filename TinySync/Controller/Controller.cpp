@@ -13,7 +13,7 @@ void Controller::InputConsoleArgument(int argc, char* argv[])
     Input_manager->InputArguments(argc, argv);
 }
 
-void Controller::InputCommand(Command command)
+void Controller::InputCommand(Commands command)
 {
     if (debug)
     {

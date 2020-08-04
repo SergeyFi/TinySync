@@ -5,5 +5,5 @@ class OutputManager : public IOutputManager
 {
 public:
 
-    void PrintCommand(Command& command) override;
+    void PrintCommand(Commands& command) override;
 };

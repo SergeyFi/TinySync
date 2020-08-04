@@ -1,5 +1,10 @@
 ﻿#include "CommandDecoder.h"
 
+CommandDecoder::CommandDecoder(std::shared_ptr<IController> Controller)
+{
+    this->Controller = Controller;
+}
+
 void CommandDecoder::AddRawData(int argc, char* argv[])
 {
     Commands command;
@@ -19,4 +24,9 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
     }
 
     // Need transfer command to controller
+
+    if (Controller)
+    {
+        Controller->InputCommand(command);
+    }
 }

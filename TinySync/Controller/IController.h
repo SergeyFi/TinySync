@@ -8,5 +8,5 @@ public:
 
     virtual void InputConsoleArgument(int argc, char* argv[]) = 0;
 
-    virtual void InputCommand(Command command) = 0;
+    virtual void InputCommand(Commands command) = 0;
 };

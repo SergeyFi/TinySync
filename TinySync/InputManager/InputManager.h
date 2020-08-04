@@ -14,12 +14,12 @@ public:
 
     void InputArguments(int argc, char* argv[]) override;
 
-    void AddController(std::weak_ptr<IController> Controller) override;
+    void AddController(std::shared_ptr<IController> Controller) override;
 
 private:
 
     std::shared_ptr<ICommandDecoder> Command_decoder;
-    std::weak_ptr<IController> Controller_;
+    std::shared_ptr<IController> Controller;
 
 
 };

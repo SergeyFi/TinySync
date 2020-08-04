@@ -13,7 +13,7 @@ public:
 
     void InputConsoleArgument(int argc, char* argv[]) override;
 
-    void InputCommand(Command command) override;
+    void InputCommand(Commands command) override;
 
     bool debug;
 
