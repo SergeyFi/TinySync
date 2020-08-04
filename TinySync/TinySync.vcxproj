@@ -155,18 +155,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CommandDecoder\CommandDecoder.cpp" />
     <ClCompile Include="Controller\Controller.cpp" />
+    <ClCompile Include="InputManager\CommandDecoder\CommandDecoder.cpp" />
     <ClCompile Include="TinySync.cpp" />
     <ClCompile Include="InputManager\InputManager.cpp" />
     <ClCompile Include="OutputManager\OutputManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CommandDecoder\Command.h" />
-    <ClInclude Include="CommandDecoder\CommandDecoder.h" />
-    <ClInclude Include="CommandDecoder\ICommandDecoder.h" />
     <ClInclude Include="Controller\Controller.h" />
     <ClInclude Include="Controller\IController.h" />
+    <ClInclude Include="InputManager\CommandDecoder\Command.h" />
+    <ClInclude Include="InputManager\CommandDecoder\CommandDecoder.h" />
+    <ClInclude Include="InputManager\CommandDecoder\ICommandDecoder.h" />
     <ClInclude Include="InputManager\InputManager.h" />
     <ClInclude Include="InputManager\IInputManager.h" />
     <ClInclude Include="OutputManager\OutputManager.h" />

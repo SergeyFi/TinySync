@@ -2,8 +2,8 @@
 #include <memory>
 
 #include "IInputManager.h"
-#include "../CommandDecoder/ICommandDecoder.h"
-#include "../CommandDecoder/CommandDecoder.h"
+#include "../InputManager/CommandDecoder/ICommandDecoder.h"
+#include "../InputManager/CommandDecoder/CommandDecoder.h"
 #include "../Controller/IController.h"
 
 class InputManager : public IInputManager

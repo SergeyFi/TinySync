@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "../CommandDecoder/Command.h"
+#include "../InputManager/CommandDecoder/Command.h"
 
 class IOutputManager
 {
