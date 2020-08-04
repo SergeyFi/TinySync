@@ -19,5 +19,5 @@ enum class Command
 struct Commands
 {
     std::vector<Command> commands;
-    std::vector<std::string> arguments;
+    std::vector<std::vector<std::string>> arguments;
 };
