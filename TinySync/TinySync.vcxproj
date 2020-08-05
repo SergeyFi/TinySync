@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="Controller\Controller.cpp" />
     <ClCompile Include="InputManager\CommandDecoder\CommandDecoder.cpp" />
+    <ClCompile Include="SyncManager\SyncManager.cpp" />
     <ClCompile Include="TinySync.cpp" />
     <ClCompile Include="InputManager\InputManager.cpp" />
     <ClCompile Include="OutputManager\OutputManager.cpp" />
@@ -172,7 +173,8 @@
     <ClInclude Include="OutputManager\OutputManager.h" />
     <ClInclude Include="OutputManager\IOutputManager.h" />
     <ClInclude Include="SyncManager\Filter.h" />
-    <ClInclude Include="SyncManager\SyncInterface.h" />
+    <ClInclude Include="SyncManager\ISync.h" />
+    <ClInclude Include="SyncManager\SyncManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
