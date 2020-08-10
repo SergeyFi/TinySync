@@ -17,44 +17,47 @@ void Controller::InputConsoleArgument(int argc, char* argv[])
 
 void Controller::InputCommand(Commands commands)
 {
-    // if (debug)
-    // {
-    //     Output_manager->PrintCommand(commands);
-    // }
-
-    CommandHelp(commands);
-}
-
-bool Controller::ContainCommand(Command command, Commands& commands)
-{
-    for (auto cur_command : commands.commands)
-    {
-        if (cur_command == command)
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-std::vector<std::string> Controller::GetCommandArguments(Command command, Commands& commands)
-{
     for (auto i = 0; i < commands.commands.size(); ++i)
     {
-        if (commands.commands[i] == command)
+        const auto& command = commands.commands[i];
+        const auto& arguments = commands.arguments[i];
+        
+        if (command == Command::help)
         {
-            return commands.arguments[i];
+            CommandHelp();
+        }
+        else if (command == Command::origin)
+        {
+            AddOrigin(arguments[0]);
+        }
+        else if (command == Command::target)
+        {
+            AddTarget(arguments[0]);
+        }
+        else if (command == Command::sync)
+        {
+            Sync();
         }
     }
-
-    return {};
 }
 
-void Controller::CommandHelp(Commands& commands)
+void Controller::CommandHelp()
 {
-    if (ContainCommand(Command::help, commands))
-    {
-        Output_manager->PrintHelp();
-    }
+    Output_manager->PrintHelp();
 }
+
+void Controller::AddOrigin(std::string origin_path)
+{
+    Sync_manager->AddOrigin(origin_path);
+}
+
+void Controller::AddTarget(std::string target_path)
+{
+    Sync_manager->AddTarget(target_path);
+}
+
+void Controller::Sync()
+{
+    Sync_manager->TransferFilesTarget();
+}
+

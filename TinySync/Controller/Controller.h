@@ -28,10 +28,6 @@ private:
     std::shared_ptr<IOutputManager> Output_manager;
     std::shared_ptr<ISync> Sync_manager;
 
-    bool ContainCommand(Command command, Commands& commands);
-
-    std::vector<std::string> GetCommandArguments(Command command, Commands& commands);
-
     const std::map<Command, int> command_priority
     {
         {Command::help, 0},
@@ -45,5 +41,13 @@ private:
         
     };
 
-    void CommandHelp(Commands& commands);
+    void CommandHelp();
+
+    void AddOrigin(std::string origin_path);
+
+    void AddTarget(std::string target_path);
+
+    void Sync();
+
+    
 };
