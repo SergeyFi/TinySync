@@ -22,3 +22,16 @@ void Controller::InputCommand(Commands command)
         Output_manager->PrintCommand(command);
     }
 }
+
+bool Controller::ContainCommand(Command command, Commands& commands)
+{
+    for (auto cur_command : commands.commands)
+    {
+        if (cur_command == command)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
