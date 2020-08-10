@@ -2,6 +2,8 @@
 
 #include <memory>
 #include <map>
+#include <vector>
+
 #include "IController.h"
 #include "../InputManager/IInputManager.h"
 #include "../OutputManager/IOutputManager.h"
@@ -28,6 +30,8 @@ private:
 
     bool ContainCommand(Command command, Commands& commands);
 
+    std::vector<std::string> GetCommandArguments(Command command, Commands& commands);
+
     const std::map<Command, int> command_priority
     {
         {Command::help, 0},
@@ -40,4 +44,6 @@ private:
         {Command::sync, 3},
         
     };
+
+    void CommandHelp(Commands& commands);
 };

@@ -15,12 +15,14 @@ void Controller::InputConsoleArgument(int argc, char* argv[])
     Input_manager->InputArguments(argc, argv);
 }
 
-void Controller::InputCommand(Commands command)
+void Controller::InputCommand(Commands commands)
 {
-    if (debug)
-    {
-        Output_manager->PrintCommand(command);
-    }
+    // if (debug)
+    // {
+    //     Output_manager->PrintCommand(commands);
+    // }
+
+    CommandHelp(commands);
 }
 
 bool Controller::ContainCommand(Command command, Commands& commands)
@@ -34,4 +36,25 @@ bool Controller::ContainCommand(Command command, Commands& commands)
     }
 
     return false;
+}
+
+std::vector<std::string> Controller::GetCommandArguments(Command command, Commands& commands)
+{
+    for (auto i = 0; i < commands.commands.size(); ++i)
+    {
+        if (commands.commands[i] == command)
+        {
+            return commands.arguments[i];
+        }
+    }
+
+    return {};
+}
+
+void Controller::CommandHelp(Commands& commands)
+{
+    if (ContainCommand(Command::help, commands))
+    {
+        Output_manager->PrintHelp();
+    }
 }
