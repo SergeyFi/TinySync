@@ -9,7 +9,7 @@ enum class Command
     origin,
     target,
     filter,
-    inverted,
+    inverted_filter,
     sync,
     clean,
     balance,
