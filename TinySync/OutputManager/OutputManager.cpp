@@ -1,6 +1,7 @@
 ﻿#include "OutputManager.h"
 
 #include <iostream>
+#include <iterator>
 #include <ostream>
 
 void OutputManager::PrintCommand(Commands& commands)
@@ -16,4 +17,9 @@ void OutputManager::PrintCommand(Commands& commands)
 
         std::cout << std::endl;
     }
+}
+
+void OutputManager::PrintHelp()
+{
+    std::cout << "Help" << std::endl;
 }

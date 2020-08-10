@@ -7,4 +7,6 @@ class IOutputManager
 public:
 
     virtual void PrintCommand(Commands& commands) = 0;
+
+    virtual void PrintHelp() = 0;
 };
