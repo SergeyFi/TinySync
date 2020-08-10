@@ -23,6 +23,10 @@ private:
     std::string origin;
     std::string target;
 
+    bool OriginTargetCheck();
+
     filter filters;
+
+    void UnsafeSync();
     
 };
