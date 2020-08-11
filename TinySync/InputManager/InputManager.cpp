@@ -1,9 +1,5 @@
 ﻿#include "InputManager.h"
 
-InputManager::InputManager()
-{
-}
-
 void InputManager::InputArguments(int argc, char* argv[])
 {
     Command_decoder->AddRawData(argc, argv);

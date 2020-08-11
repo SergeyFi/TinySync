@@ -1,7 +1,5 @@
 ﻿#include "SyncManager.h"
 
-#include <fstream>
-
 
 void SyncManager::AddOrigin(::std::string origin_path)
 {
@@ -58,5 +56,5 @@ bool SyncManager::OriginTargetCheck()
 
 void SyncManager::UnsafeSync()
 {
-    
+
 }

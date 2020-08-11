@@ -1,9 +1,7 @@
 #include <memory>
 
 #include "Controller/Controller.h"
-#include "Controller/IController.h"
 #include "InputManager/InputManager.h"
-#include "InputManager/IInputManager.h"
 #include "OutputManager/OutputManager.h"
 #include "SyncManager/SyncManager.h"
 

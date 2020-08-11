@@ -20,7 +20,7 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
         if (commands.count(current_argument) > 0)
         {
             command.commands.push_back(commands.find(current_argument)->second);
-            command.arguments.push_back(std::vector<std::string>());
+            command.arguments.emplace_back(std::vector<std::string>());
             ++command_index;
         }
         else

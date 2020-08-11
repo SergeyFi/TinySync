@@ -1,7 +1,6 @@
 ﻿#include "OutputManager.h"
 
 #include <iostream>
-#include <iterator>
 #include <ostream>
 
 void OutputManager::PrintCommand(Commands& commands)
@@ -10,7 +9,7 @@ void OutputManager::PrintCommand(Commands& commands)
     {
         std::cout << "Command: ";
         
-        for (auto argument : commands.arguments[i])
+        for (const auto& argument : commands.arguments[i])
         {
             std::cout << argument << " ";
         }

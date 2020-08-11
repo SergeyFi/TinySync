@@ -10,7 +10,7 @@ class InputManager : public IInputManager
 {
 public:
 
-    InputManager();
+    InputManager() = default;
 
     void InputArguments(int argc, char* argv[]) override;
 
