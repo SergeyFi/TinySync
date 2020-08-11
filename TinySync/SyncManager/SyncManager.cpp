@@ -43,12 +43,12 @@ void SyncManager::BalanceFiles()
 
 bool SyncManager::OriginTargetCheck()
 {
-    if (target == "")
+    if (target.empty())
     {
        return false;
     }
 
-    if (origin == "")
+    if (origin.empty())
     {
         return false;
     }
