@@ -27,4 +27,4 @@ add_executable(TinySync
         SyncManager/ISync.h
         SyncManager/SyncManager.cpp
         SyncManager/SyncManager.h
-        TinySync.cpp)
+        TinySync.cpp  Logger/ILogger.h Logger/Logger.cpp Logger/Logger.h Logger/GetLogger.h Logger/GetLogger.cpp)
