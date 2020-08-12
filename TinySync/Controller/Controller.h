@@ -49,5 +49,7 @@ private:
 
     void Sync();
 
+    void Balance();
+
     
 };

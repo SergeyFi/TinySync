@@ -38,6 +38,10 @@ void Controller::InputCommand(Commands commands)
         {
             Sync();
         }
+        else if (command == Command::balance)
+        {
+            Balance();
+        }
     }
 }
 
@@ -59,5 +63,10 @@ void Controller::AddTarget(std::string target_path)
 void Controller::Sync()
 {
     Sync_manager->TransferFilesTarget();
+}
+
+void Controller::Balance()
+{
+    Sync_manager->BalanceFiles();
 }
 
