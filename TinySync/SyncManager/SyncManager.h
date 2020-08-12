@@ -27,6 +27,6 @@ private:
 
     filter filters;
 
-    void UnsafeSync();
+    void UnsafeSync(const std::string origin_path, const std::string target_path);
     
 };

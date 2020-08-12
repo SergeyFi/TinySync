@@ -1,6 +1,7 @@
 ﻿#include "SyncManager.h"
 #include "../Logger/GetLogger.h"
-
+#include <filesystem>
+#include <iostream>
 
 void SyncManager::AddOrigin(::std::string origin_path)
 {
@@ -21,12 +22,7 @@ void SyncManager::TransferFilesTarget()
 {
     if (OriginTargetCheck())
     {
-        bool safe_sync = false;
-
-        if (!safe_sync)
-        {
-            UnsafeSync();
-        }
+        UnsafeSync(origin, target);
     }
 }
 
@@ -37,29 +33,33 @@ void SyncManager::CleanTarget()
 
 void SyncManager::BalanceFiles()
 {
-    
+    UnsafeSync(origin, target);
+    UnsafeSync(target, origin);
 }
 
 bool SyncManager::OriginTargetCheck()
 {
-    if (target.empty())
+    if (target.empty() || origin.empty())
     {
-        GetLogger::LoggerGet()->Log("Target path is empty.", LogType::error);
+        if (target.empty())
+        {
+            GetLogger::LoggerGet()->Log("Target path is empty.", LogType::error);
+        }
+
+        if (origin.empty())
+        {
+            GetLogger::LoggerGet()->Log("Origin path is empty.", LogType::error);
+        }
 
        return false;
-    }
-
-    if (origin.empty())
-    {
-        GetLogger::LoggerGet()->Log("Origin path is empty.", LogType::error);
-
-        return false;
     }
 
     return true;
 }
 
-void SyncManager::UnsafeSync()
+void SyncManager::UnsafeSync(const std::string origin_path, const std::string target_path)
 {
+    namespace fs = std::filesystem;
 
+    fs::copy(origin_path, target_path, fs::copy_options::skip_existing | fs::copy_options::recursive);
 }
