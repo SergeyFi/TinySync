@@ -1,4 +1,5 @@
 ﻿#include "SyncManager.h"
+#include "../Logger/GetLogger.h"
 
 
 void SyncManager::AddOrigin(::std::string origin_path)
@@ -43,11 +44,15 @@ bool SyncManager::OriginTargetCheck()
 {
     if (target.empty())
     {
+        GetLogger::LoggerGet()->Log("Target path is empty.", LogType::error);
+
        return false;
     }
 
     if (origin.empty())
     {
+        GetLogger::LoggerGet()->Log("Origin path is empty.", LogType::error);
+
         return false;
     }
 
