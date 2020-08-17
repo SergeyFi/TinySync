@@ -14,7 +14,7 @@ public:
 
     void InputArguments(int argc, char* argv[]) override;
 
-    void AddController(std::shared_ptr<IController> Controller) override;
+    void AddController(std::shared_ptr<IController>& Controller) override;
 
 private:
 

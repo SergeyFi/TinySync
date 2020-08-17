@@ -2,7 +2,7 @@
 
 #include <vector>
 
-CommandDecoder::CommandDecoder(std::shared_ptr<IController> Controller)
+CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
 {
     this->Controller = Controller;
 }

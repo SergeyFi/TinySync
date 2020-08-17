@@ -11,7 +11,7 @@ class CommandDecoder : public ICommandDecoder
 {
 public:
 
-    CommandDecoder(std::shared_ptr<IController> Controller);
+    CommandDecoder(std::shared_ptr<IController>& Controller);
     
     void AddRawData(int argc, char* argv[]) override;
 

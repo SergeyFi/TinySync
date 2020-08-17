@@ -1,7 +1,7 @@
 ﻿#include "SyncManager.h"
 #include "../Logger/GetLogger.h"
 #include <filesystem>
-#include <iostream>
+
 
 void SyncManager::AddOrigin(::std::string origin_path)
 {
