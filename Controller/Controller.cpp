@@ -1,7 +1,7 @@
 ﻿#include "Controller.h"
 
-Controller::Controller(bool debug, std::shared_ptr<IInputManager> Input_manager,
-    std::shared_ptr<IOutputManager> Output_manager, std::shared_ptr<ISync> Sync_manager)
+Controller::Controller(bool debug, std::shared_ptr<IInputManager>& Input_manager,
+    std::shared_ptr<IOutputManager>& Output_manager, std::shared_ptr<ISync>& Sync_manager)
 {
     this->debug = debug;
     this->Input_manager = Input_manager;
