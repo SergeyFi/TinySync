@@ -42,6 +42,10 @@ void Controller::InputCommand(Commands commands)
         {
             Balance();
         }
+        else if (command == Command::clean)
+        {
+            CleanTarget();
+        }
     }
 }
 
@@ -68,5 +72,10 @@ void Controller::Sync()
 void Controller::Balance()
 {
     Sync_manager->BalanceFiles();
+}
+
+void Controller::CleanTarget()
+{
+    Sync_manager->CleanTarget();
 }
 

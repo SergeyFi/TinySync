@@ -51,5 +51,6 @@ private:
 
     void Balance();
 
-    
+    void CleanTarget();
+
 };

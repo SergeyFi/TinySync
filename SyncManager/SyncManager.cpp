@@ -28,7 +28,16 @@ void SyncManager::TransferFilesTarget()
 
 void SyncManager::CleanTarget()
 {
-    
+    namespace fs = std::filesystem;
+
+    if (!target.empty())
+    {
+        fs::remove(target);
+    }
+    else
+    {
+        GetLogger::LoggerGet()->Log("Target path is empty.", LogType::error);
+    }
 }
 
 void SyncManager::BalanceFiles()
