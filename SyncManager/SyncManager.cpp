@@ -32,7 +32,13 @@ void SyncManager::CleanTarget()
 
     if (!target.empty())
     {
-        fs::remove(target);
+        std::error_code error;
+        fs::remove_all(target, error);
+
+        if (error)
+        {
+            GetLogger::LoggerGet()->Log(error.message(), LogType::error);
+        }
     }
     else
     {
