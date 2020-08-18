@@ -10,7 +10,7 @@ void CommandSync::Execute(std::vector<std::string> arguments, IController *contr
     {
         if (GetSyncManager->GetSyncManager())
         {
-            GetSyncManager->GetSyncManager()->TransferFilesTarget();
+            GetSyncManager->GetSyncManager()->Sync();
         }
     }
 }

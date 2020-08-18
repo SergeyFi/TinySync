@@ -18,7 +18,7 @@ void SyncManager::AddFilter(filter filter)
     filters = filter;
 }
 
-void SyncManager::TransferFilesTarget()
+void SyncManager::Sync()
 {
     if (OriginTargetCheck())
     {
