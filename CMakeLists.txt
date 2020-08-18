@@ -27,4 +27,4 @@ add_executable(TinySync
         SyncManager/ISync.h
         SyncManager/SyncManager.cpp
         SyncManager/SyncManager.h
-        TinySync.cpp  Logger/ILogger.h Logger/Logger.cpp Logger/Logger.h Logger/GetLogger.h Logger/GetLogger.cpp Commands/ICommand.h Commands/CommandAddOrigin.cpp Commands/CommandAddOrigin.h Controller/IGetSyncManager.h Commands/CommandAddTarget.cpp Commands/CommandAddTarget.h Commands/CommandSync.cpp Commands/CommandSync.h Commands/CommandBalance.cpp Commands/CommandBalance.h)
+        TinySync.cpp  Logger/ILogger.h Logger/Logger.cpp Logger/Logger.h Logger/GetLogger.h Logger/GetLogger.cpp Commands/ICommand.h Commands/CommandAddOrigin.cpp Commands/CommandAddOrigin.h Controller/IGetSyncManager.h Commands/CommandAddTarget.cpp Commands/CommandAddTarget.h Commands/CommandSync.cpp Commands/CommandSync.h Commands/CommandBalance.cpp Commands/CommandBalance.h Commands/CommandCleanTarget.cpp Commands/CommandCleanTarget.h)
