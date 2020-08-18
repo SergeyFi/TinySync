@@ -13,7 +13,7 @@ add_executable(TinySync
         Controller/Controller.cpp
         Controller/Controller.h
         Controller/IController.h
-        InputManager/CommandDecoder/Command.h
+        InputManager/CommandDecoder/CommandType.h
         InputManager/CommandDecoder/CommandDecoder.cpp
         InputManager/CommandDecoder/CommandDecoder.h
         InputManager/CommandDecoder/ICommandDecoder.h

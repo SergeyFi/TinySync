@@ -15,67 +15,12 @@ void Controller::InputConsoleArgument(int argc, char* argv[])
     Input_manager->InputArguments(argc, argv);
 }
 
-void Controller::InputCommand(Commands commands)
+void Controller::InputCommand(std::vector<Command> commands)
 {
-    for (auto i = 0; i < commands.commands.size(); ++i)
-    {
-        const auto& command = commands.commands[i];
-        const auto& arguments = commands.arguments[i];
-        
-        if (command == Command::help)
-        {
-            CommandHelp();
-        }
-        else if (command == Command::origin)
-        {
-            AddOrigin(arguments[0]);
-        }
-        else if (command == Command::target)
-        {
-            AddTarget(arguments[0]);
-        }
-        else if (command == Command::sync)
-        {
-            Sync();
-        }
-        else if (command == Command::balance)
-        {
-            Balance();
-        }
-        else if (command == Command::clean)
-        {
-            CleanTarget();
-        }
-    }
+
 }
 
-void Controller::CommandHelp()
+std::shared_ptr<ISync> Controller::GetSyncManager()
 {
-    Output_manager->PrintHelp();
+    return Sync_manager;
 }
-
-void Controller::AddOrigin(std::string origin_path)
-{
-    Sync_manager->AddOrigin(origin_path);
-}
-
-void Controller::AddTarget(std::string target_path)
-{
-    Sync_manager->AddTarget(target_path);
-}
-
-void Controller::Sync()
-{
-    Sync_manager->TransferFilesTarget();
-}
-
-void Controller::Balance()
-{
-    Sync_manager->BalanceFiles();
-}
-
-void Controller::CleanTarget()
-{
-    Sync_manager->CleanTarget();
-}
-

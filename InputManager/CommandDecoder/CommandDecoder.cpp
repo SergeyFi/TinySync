@@ -1,5 +1,4 @@
 ﻿#include "CommandDecoder.h"
-
 #include <vector>
 
 CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
@@ -9,31 +8,31 @@ CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
 
 void CommandDecoder::AddRawData(int argc, char* argv[])
 {
-    Commands command;
+    std::vector<Command> commands;
 
-    int command_index = -1;
+    for (auto i = 0; i < argc; ++i)
+    {
+        std::string currentArgument = argv[i];
 
-    for (int i = 1; i < argc; ++i)
-    {   
-        const std::string current_argument = argv[i];
-
-        if (commands.count(current_argument) > 0)
+        if (commandsMap.count(currentArgument) > 0)
         {
-            command.commands.push_back(commands.find(current_argument)->second);
-            command.arguments.emplace_back(std::vector<std::string>());
-            ++command_index;
+            Command new_command;
+            new_command.command = commandsMap.find(currentArgument)->second;
+
+            commands.push_back(new_command);
         }
         else
         {
-            if (command_index >= 0)
+            if (!commands.empty())
             {
-                command.arguments[command_index].push_back(current_argument);
+                commands.back().arguments.push_back(currentArgument);
             }
         }
     }
 
+
     if (Controller)
     {
-        Controller->InputCommand(command);
+        Controller->InputCommand(commands);
     }
 }

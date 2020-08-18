@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-enum class Command
+enum class CommandType
 {
     none,
     origin,
@@ -16,8 +16,8 @@ enum class Command
     help
 };
 
-struct Commands
+struct Command
 {
-    std::vector<Command> commands;
-    std::vector<std::vector<std::string>> arguments;
+    CommandType command;
+    std::vector<std::string> arguments;
 };

@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Command.h"
+#include "CommandType.h"
 
 class ICommandDecoder
 {

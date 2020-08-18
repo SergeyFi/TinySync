@@ -8,8 +8,9 @@
 #include "../InputManager/IInputManager.h"
 #include "../OutputManager/IOutputManager.h"
 #include "../SyncManager/ISync.h"
+#include "IGetSyncManager.h"
 
-class Controller : public IController
+class Controller : public IController, public IGetSyncManager
 {
 public:
 
@@ -18,9 +19,11 @@ public:
 
     void InputConsoleArgument(int argc, char* argv[]) override;
 
-    void InputCommand(Commands command) override;
+    void InputCommand(std::vector<Command> commands) override;
 
     bool debug;
+
+    std::shared_ptr<ISync> GetSyncManager() override;
 
 private:
 
@@ -28,16 +31,16 @@ private:
     std::shared_ptr<IOutputManager> Output_manager;
     std::shared_ptr<ISync> Sync_manager;
 
-    const std::map<Command, int> command_priority
+    const std::map<CommandType, int> command_priority
     {
-        {Command::help, 0},
-        {Command::filter, 1},
-        {Command::inverted_filter, 1},
-        {Command::origin, 1},
-        {Command::target, 1},
-        {Command::clean, 2},
-        {Command::balance, 3},
-        {Command::sync, 3},
+        {CommandType::help,            0},
+        {CommandType::filter,          1},
+        {CommandType::inverted_filter, 1},
+        {CommandType::origin,          1},
+        {CommandType::target,          1},
+        {CommandType::clean,           2},
+        {CommandType::balance,         3},
+        {CommandType::sync,            3},
         
     };
 

@@ -19,23 +19,23 @@ private:
 
     std::shared_ptr<IController> Controller;
 
-    const std::map<std::string, Command> commands
+    const std::map<std::string, CommandType> commandsMap
     {
-        {{"-O"}, Command::origin},
-        {{"--origin"}, Command::origin},
-        {{"-T"}, Command::target},
-        {{"--target"}, Command::target},
-        {{"-F"}, Command::filter},
-        {{"--filter"}, Command::filter},
-        {{"-I"}, Command::inverted_filter},
-        {{"--inverted"}, Command::inverted_filter},
-        {{"-S"}, Command::sync},
-        {{"--sync"}, Command::sync},
-        {{"-C"}, Command::clean},
-        {{"--clean"}, Command::clean},
-        {{"-B"}, Command::balance},
-        {{"--balance"}, Command::balance},
-        {{"-H"}, Command::help},
-        {{"--help"}, Command::help}
+        {{"-O"},         CommandType::origin},
+        {{"--origin"},   CommandType::origin},
+        {{"-T"},         CommandType::target},
+        {{"--target"},   CommandType::target},
+        {{"-F"},         CommandType::filter},
+        {{"--filter"},   CommandType::filter},
+        {{"-I"},         CommandType::inverted_filter},
+        {{"--inverted"}, CommandType::inverted_filter},
+        {{"-S"},         CommandType::sync},
+        {{"--sync"},     CommandType::sync},
+        {{"-C"},         CommandType::clean},
+        {{"--clean"},    CommandType::clean},
+        {{"-B"},         CommandType::balance},
+        {{"--balance"},  CommandType::balance},
+        {{"-H"},         CommandType::help},
+        {{"--help"},     CommandType::help}
     };
 };
