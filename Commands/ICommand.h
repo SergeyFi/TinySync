@@ -9,5 +9,5 @@ class ICommand
 public:
 
     virtual void Execute(std::vector<std::string> arguments, IController* controller) = 0;
-    virtual std::string GetName() = 0;
+    virtual CommandType GetName() = 0;
 };
