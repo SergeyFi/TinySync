@@ -2,7 +2,7 @@
 TinySync - small program for local file synchronization.
 
 ## Features:
- * Sync: transfer from origin to target.
+ * Sync: transfer files from origin to target.
  * Balance: transfer file from origin to target and from target to origin.
  * Clean: clean target folder\file.
  
