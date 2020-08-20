@@ -1,6 +1,6 @@
 ﻿#include "CommandDecoder.h"
-
 #include <vector>
+#include "../Logger/GetLogger.h"
 
 CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
 {
@@ -9,31 +9,71 @@ CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
 
 void CommandDecoder::AddRawData(int argc, char* argv[])
 {
-    Commands command;
+    MakeCommandsMap();
 
-    int command_index = -1;
+    std::vector<Command> commands;
 
-    for (int i = 1; i < argc; ++i)
-    {   
-        const std::string current_argument = argv[i];
+    for (auto i = 0; i < argc; ++i)
+    {
+        std::string currentArgument = argv[i];
 
-        if (commands.count(current_argument) > 0)
+        if (!CheckCommand(currentArgument))
         {
-            command.commands.push_back(commands.find(current_argument)->second);
-            command.arguments.emplace_back(std::vector<std::string>());
-            ++command_index;
+            break;
+        }
+
+        if (commandsMap.count(currentArgument) > 0)
+        {
+            Command new_command;
+            new_command.command = commandsMap.find(currentArgument)->second;
+
+            commands.push_back(new_command);
         }
         else
         {
-            if (command_index >= 0)
+            if (!commands.empty())
             {
-                command.arguments[command_index].push_back(current_argument);
+                commands.back().arguments.push_back(currentArgument);
             }
         }
     }
 
+
     if (Controller)
     {
-        Controller->InputCommand(command);
+        Controller->InputCommand(commands);
     }
+}
+
+void CommandDecoder::MakeCommandsMap()
+{
+    auto ControllerCommands = std::dynamic_pointer_cast<IGetCommands>(Controller);
+
+    if (ControllerCommands)
+    {
+        const auto& commands = ControllerCommands->GetCommands();
+
+        for (auto& [commandType, Command] : commands)
+        {
+            for (auto& commandRaw : Command->GetRawCommands())
+            {
+                commandsMap[commandRaw] = commandType;
+            }
+        }
+    }
+}
+
+bool CommandDecoder::CheckCommand(std::string& command)
+{
+    if (command[0] == '-')
+    {
+        if (commandsMap.count(command) == 0)
+        {
+            GetLogger::LoggerGet()->Log("Command '" + command + "' does not exist.", LogType::error);
+
+            return false;
+        }
+    }
+
+    return true;
 }

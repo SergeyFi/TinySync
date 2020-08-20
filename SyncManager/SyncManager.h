@@ -12,7 +12,7 @@ public:
 
     void AddFilter(filter filter) override;
 
-    void TransferFilesTarget() override;
+    void Sync() override;
 
     void CleanTarget() override;
 

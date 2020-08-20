@@ -5,7 +5,7 @@ class OutputManager : public IOutputManager
 {
 public:
 
-    void PrintCommand(Commands& commands) override;
-
     void PrintHelp() override;
+
+    void PrintVesrion(std::string version) const override;
 };
