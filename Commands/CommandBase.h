@@ -14,6 +14,7 @@ public:
         commandPriority = priority;
         commandsList.commandsList = commands;
         commandArgumentCount = argc;
+        commandName = newCommandName;
     }
 
     CommandsList GetCommandsList() const override;
