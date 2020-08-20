@@ -7,8 +7,8 @@ class CommandVersion: public CommandBase
 {
 public:
 
-    CommandVersion(std::string newVersion, CommandType newName, int priority, std::set<std::string> commands)
-    : CommandBase(newName, priority, commands)
+    CommandVersion(std::string newVersion, CommandType newName, int priority, std::set<std::string> commands, int argc)
+    : CommandBase(newName, priority, commands, argc)
     {
         version = newVersion;
     }
