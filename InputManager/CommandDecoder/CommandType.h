@@ -13,7 +13,8 @@ enum class CommandType
     sync,
     clean,
     balance,
-    help
+    help,
+    version
 };
 
 struct Command

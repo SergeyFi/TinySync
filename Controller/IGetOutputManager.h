@@ -5,5 +5,7 @@
 
 class IGetOutputManager
 {
+public:
+
     virtual std::shared_ptr<IOutputManager> GetOutputManager() = 0;
 };

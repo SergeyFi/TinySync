@@ -9,9 +9,12 @@
 #include "Commands/CommandSync.h"
 #include "Commands/CommandBalance.h"
 #include "Commands/CommandCleanTarget.h"
+#include "Commands/CommandVersion.h"
 
 int main(int argc, char* argv[])
 {
+    const std::string programVersion = "0.2a";
+
     std::shared_ptr<IInputManager> Input_manager {new InputManager()};
 
     std::shared_ptr<IOutputManager> Output_manager {new OutputManager()};
@@ -34,6 +37,9 @@ int main(int argc, char* argv[])
 
     commands.insert(std::make_pair(
             CommandType::clean, new CommandCleanTarget(CommandType::clean, {"-C", "--clean"})));
+
+    commands.insert(std::make_pair(
+            CommandType::version, new CommandVersion(programVersion ,CommandType::version, {"-V", "--version"})));
 
     std::shared_ptr<IController> Sync_controller
     {new Controller(true ,Input_manager, Output_manager, Sync_manager, commands)};

@@ -50,7 +50,7 @@ private:
         {CommandType::clean,           2},
         {CommandType::balance,         3},
         {CommandType::sync,            3},
-        
+        {CommandType::version,            0},
     };
 
     std::map<CommandType, std::shared_ptr<ICommand>> Commands;
