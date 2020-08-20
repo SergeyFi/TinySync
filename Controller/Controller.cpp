@@ -38,3 +38,8 @@ std::shared_ptr<ISync> Controller::GetSyncManager()
 {
     return Sync_manager;
 }
+
+std::map<CommandType, std::shared_ptr<ICommand>> Controller::GetCommands() const
+{
+    return Commands;
+}
