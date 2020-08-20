@@ -12,3 +12,5 @@ TinySync - small program for local file synchronization.
  * Sync: -S or --sync
  * Balance: -B or --balance
  * Clean: -C or --clean
+ * Version: -V or --version
+ * Help: -H or --help
