@@ -51,13 +51,13 @@ void CommandDecoder::MakeCommandsMap()
 
     if (ControllerCommands)
     {
-        const auto& commands = ControllerCommands->GetCommands();
+        const auto& commands = ControllerCommands->GetCommandsMap();
 
-        for (auto& [commandType, Command] : commands)
+        for (auto& [commandsList, Command] : commands)
         {
-            for (auto& commandRaw : Command->GetRawCommands())
+            for (auto& commandName : commandsList.commandsList)
             {
-                commandsMap[commandRaw] = commandType;
+                commandsMap[commandName] = commandsList;
             }
         }
     }

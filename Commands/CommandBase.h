@@ -7,25 +7,20 @@ class CommandBase : public ICommand
 
 public:
 
-    CommandBase(CommandType newName,int priority, std::set<std::string> commands, int argc)
+    CommandBase(int priority, std::set<std::string> commands, int argc)
     {
-        name = newName;
         commandPriority = priority;
-        rawCommands = commands;
+        commandsList.commandsList = commands;
         commandArgumentCount = argc;
     }
 
-    CommandType GetName() const override;
-
-    std::set<std::string> GetRawCommands() const override;
+    CommandsList GetCommandsList() const override;
 
     int GetCommandPriority() const override;
 
 protected:
 
-    CommandType name;
-
-    std::set<std::string> rawCommands;
+    CommandsList commandsList;
 
     int commandPriority;
 

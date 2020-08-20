@@ -20,7 +20,7 @@ private:
 
     std::shared_ptr<IController> Controller;
 
-    std::map<std::string, CommandType> commandsMap;
+    std::map<std::string, CommandsList> commandsMap;
 
     void MakeCommandsMap();
 
