@@ -23,4 +23,6 @@ private:
     std::map<std::string, CommandType> commandsMap;
 
     void MakeCommandsMap();
+
+    bool CheckCommand(std::string& command);
 };

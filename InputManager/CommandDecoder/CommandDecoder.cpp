@@ -1,5 +1,6 @@
 ﻿#include "CommandDecoder.h"
 #include <vector>
+#include "../Logger/GetLogger.h"
 
 CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
 {
@@ -15,6 +16,11 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
     for (auto i = 0; i < argc; ++i)
     {
         std::string currentArgument = argv[i];
+
+        if (!CheckCommand(currentArgument))
+        {
+            break;
+        }
 
         if (commandsMap.count(currentArgument) > 0)
         {
@@ -55,4 +61,19 @@ void CommandDecoder::MakeCommandsMap()
             }
         }
     }
+}
+
+bool CommandDecoder::CheckCommand(std::string& command)
+{
+    if (command[0] == '-')
+    {
+        if (commandsMap.count(command) == 0)
+        {
+            GetLogger::LoggerGet()->Log("Command '" + command + "' does not exist.", LogType::error);
+
+            return false;
+        }
+    }
+
+    return true;
 }
