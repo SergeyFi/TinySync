@@ -25,19 +25,19 @@ int main(int argc, char* argv[])
     // Set commands
     std::vector<std::shared_ptr<ICommand>> commands;
 
-    commands.emplace_back(new CommandAddOrigin{1, {"-O", "--origin"}, 1});
+    commands.emplace_back(new CommandAddOrigin{"Origin", 1, {"-O", "--origin"}, 1});
 
-    commands.emplace_back(new CommandAddTarget{1, {"-T", "--target"}, 1});
+    commands.emplace_back(new CommandAddTarget{"Target",1, {"-T", "--target"}, 1});
 
-    commands.emplace_back(new CommandSync{3, {"-S", "--sync"}, 0});
+    commands.emplace_back(new CommandSync{"Sync",3, {"-S", "--sync"}, 0});
 
-    commands.emplace_back(new CommandBalance{3, {"-B", "--balance"}, 0});
+    commands.emplace_back(new CommandBalance{"Balance", 3, {"-B", "--balance"}, 0});
 
-    commands.emplace_back(new CommandCleanTarget{2, {"-C", "--clean"}, 0});
+    commands.emplace_back(new CommandCleanTarget{"Clean", 2, {"-C", "--clean"}, 0});
 
-    commands.emplace_back(new CommandVersion{programVersion, 0, {"-V", "--version"}, 0});
+    commands.emplace_back(new CommandVersion{"Version", programVersion, 0, {"-V", "--version"}, 0});
 
-    commands.emplace_back(new CommandHelp{0, {"-H", "--help"}, 0});
+    commands.emplace_back(new CommandHelp{"Help",0, {"-H", "--help"}, 0});
 
 
     std::shared_ptr<IController> Sync_controller

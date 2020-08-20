@@ -9,7 +9,7 @@ class CommandBase : public ICommand
 
 public:
 
-    CommandBase(int priority, std::set<std::string> commands, int argc)
+    CommandBase(std::string newCommandName, int priority, std::set<std::string> commands, int argc)
     {
         commandPriority = priority;
         commandsList.commandsList = commands;
@@ -21,6 +21,8 @@ public:
     int GetCommandPriority() const override;
 
 protected:
+
+    std::string commandName;
 
     CommandsList commandsList;
 
