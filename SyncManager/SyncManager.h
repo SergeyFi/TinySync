@@ -23,7 +23,9 @@ private:
     std::string origin;
     std::string target;
 
-    bool OriginTargetCheck();
+    bool OriginPathCheck();
+
+    bool TargetPathCheck();
 
     filter filters;
 
