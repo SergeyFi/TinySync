@@ -43,3 +43,8 @@ std::map<CommandType, std::shared_ptr<ICommand>> Controller::GetCommands() const
 {
     return Commands;
 }
+
+std::shared_ptr<IOutputManager> Controller::GetOutputManager()
+{
+    return Output_manager;
+}

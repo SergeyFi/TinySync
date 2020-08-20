@@ -11,8 +11,10 @@
 #include "IGetSyncManager.h"
 #include "../Commands/ICommand.h"
 #include "IGetCommands.h"
+#include "IGetOutputManager.h"
 
-class Controller : public IController, public IGetSyncManager, public IGetCommands
+class Controller : public IController, public IGetSyncManager
+        , public IGetCommands, public IGetOutputManager
 {
 public:
 
@@ -29,6 +31,8 @@ public:
     std::shared_ptr<ISync> GetSyncManager() override;
 
     std::map<CommandType, std::shared_ptr<ICommand>> GetCommands() const override;
+
+    std::shared_ptr<IOutputManager> GetOutputManager() override;
 
 private:
 
