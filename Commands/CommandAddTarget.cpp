@@ -14,8 +14,3 @@ void CommandAddTarget::Execute(std::vector<std::string> arguments, IController *
         }
     }
 }
-
-CommandType CommandAddTarget::GetName()
-{
-    return name;
-}

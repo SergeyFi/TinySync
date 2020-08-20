@@ -1,19 +1,13 @@
 #pragma once
 
 #include "ICommand.h"
+#include "CommandBase.h"
 
-class CommandAddTarget : public ICommand
+class CommandAddTarget : public CommandBase
 {
 public:
-    explicit CommandAddTarget(CommandType newName)
-    {
-        name = newName;
-    }
 
-private:
+    using CommandBase::CommandBase;
+
     void Execute(std::vector<std::string> arguments, IController* controller) override;
-
-    CommandType GetName() override;
-
-    CommandType name;
 };

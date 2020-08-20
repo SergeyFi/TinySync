@@ -13,8 +13,3 @@ void CommandAddOrigin::Execute(std::vector<std::string> arguments, IController* 
         }
     }
 }
-
-CommandType CommandAddOrigin::GetName()
-{
-    return name;
-}

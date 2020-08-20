@@ -1,19 +1,13 @@
 #pragma once
 
 #include "ICommand.h"
+#include "CommandBase.h"
 
-class CommandBalance: public ICommand
+class CommandBalance: public CommandBase
 {
 public:
-    explicit CommandBalance(CommandType new_name)
-    {
-        name = new_name;
-    }
 
-private:
+    using CommandBase::CommandBase;
+
     void Execute(std::vector<std::string> arguments, IController* controller) override;
-
-    CommandType GetName() override;
-
-    CommandType name;
 };

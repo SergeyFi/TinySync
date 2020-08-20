@@ -14,8 +14,3 @@ void CommandSync::Execute(std::vector<std::string> arguments, IController *contr
         }
     }
 }
-
-CommandType CommandSync::GetName()
-{
-    return name;
-}

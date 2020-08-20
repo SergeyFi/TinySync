@@ -14,8 +14,3 @@ void CommandBalance::Execute(std::vector<std::string> arguments, IController *co
         }
     }
 }
-
-CommandType CommandBalance::GetName()
-{
-    return name;
-}

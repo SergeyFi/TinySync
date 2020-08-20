@@ -14,8 +14,3 @@ void CommandCleanTarget::Execute(std::vector<std::string> arguments, IController
         }
     }
 }
-
-CommandType CommandCleanTarget::GetName()
-{
-    return name;
-}

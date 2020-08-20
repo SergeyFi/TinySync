@@ -20,11 +20,20 @@ int main(int argc, char* argv[])
 
     // Set commands
     std::map<CommandType, std::shared_ptr<ICommand>> commands;
-    commands.insert(std::make_pair(CommandType::origin, new CommandAddOrigin(CommandType::origin)));
-    commands.insert(std::make_pair(CommandType::target, new CommandAddTarget(CommandType::target)));
-    commands.insert(std::make_pair(CommandType::sync, new CommandSync(CommandType::sync)));
-    commands.insert(std::make_pair(CommandType::balance, new CommandBalance(CommandType::balance)));
-    commands.insert(std::make_pair(CommandType::clean, new CommandCleanTarget(CommandType::clean)));
+    commands.insert(std::make_pair(
+            CommandType::origin, new CommandAddOrigin(CommandType::origin, {"-O", "--origin"})));
+
+    commands.insert(std::make_pair(
+            CommandType::target, new CommandAddTarget(CommandType::target, {"-T", "--target"})));
+
+    commands.insert(std::make_pair(
+            CommandType::sync, new CommandSync(CommandType::sync, {"-S", "--sync"})));
+
+    commands.insert(std::make_pair(
+            CommandType::balance, new CommandBalance(CommandType::balance, {"-B", "--balance"})));
+
+    commands.insert(std::make_pair(
+            CommandType::clean, new CommandCleanTarget(CommandType::clean, {"-C", "--clean"})));
 
     std::shared_ptr<IController> Sync_controller
     {new Controller(true ,Input_manager, Output_manager, Sync_manager, commands)};
