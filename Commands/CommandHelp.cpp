@@ -6,6 +6,8 @@
 
 void CommandHelp::Execute(std::vector<std::string> arguments, IController *controller)
 {
+    ArgumentCountWarning(arguments.size());
+
     auto GetSyncManager = dynamic_cast<IGetOutputManager*>(controller);
 
     if (GetSyncManager)

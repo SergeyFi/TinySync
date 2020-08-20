@@ -2,6 +2,8 @@
 
 #include "ICommand.h"
 
+#include "../Logger/GetLogger.h"
+
 class CommandBase : public ICommand
 {
 
@@ -25,4 +27,6 @@ protected:
     int commandPriority;
 
     int commandArgumentCount;
+
+    void ArgumentCountWarning(int argumentsGiven);
 };
