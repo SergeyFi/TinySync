@@ -8,6 +8,8 @@ CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
 
 void CommandDecoder::AddRawData(int argc, char* argv[])
 {
+    MakeCommandsMap();
+
     std::vector<Command> commands;
 
     for (auto i = 0; i < argc; ++i)
@@ -34,5 +36,23 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
     if (Controller)
     {
         Controller->InputCommand(commands);
+    }
+}
+
+void CommandDecoder::MakeCommandsMap()
+{
+    auto ControllerCommands = std::dynamic_pointer_cast<IGetCommands>(Controller);
+
+    if (ControllerCommands)
+    {
+        const auto& commands = ControllerCommands->GetCommands();
+
+        for (auto& [commandType, Command] : commands)
+        {
+            for (auto& commandRaw : Command->GetRawCommands())
+            {
+                commandsMap[commandRaw] = commandType;
+            }
+        }
     }
 }

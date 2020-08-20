@@ -6,6 +6,7 @@
 
 #include "ICommandDecoder.h"
 #include "../../Controller/IController.h"
+#include "../Controller/IGetCommands.h"
 
 class CommandDecoder : public ICommandDecoder
 {
@@ -19,23 +20,7 @@ private:
 
     std::shared_ptr<IController> Controller;
 
-    const std::map<std::string, CommandType> commandsMap
-    {
-        {{"-O"},         CommandType::origin},
-        {{"--origin"},   CommandType::origin},
-        {{"-T"},         CommandType::target},
-        {{"--target"},   CommandType::target},
-        {{"-F"},         CommandType::filter},
-        {{"--filter"},   CommandType::filter},
-        {{"-I"},         CommandType::inverted_filter},
-        {{"--inverted"}, CommandType::inverted_filter},
-        {{"-S"},         CommandType::sync},
-        {{"--sync"},     CommandType::sync},
-        {{"-C"},         CommandType::clean},
-        {{"--clean"},    CommandType::clean},
-        {{"-B"},         CommandType::balance},
-        {{"--balance"},  CommandType::balance},
-        {{"-H"},         CommandType::help},
-        {{"--help"},     CommandType::help}
-    };
+    std::map<std::string, CommandType> commandsMap;
+
+    void MakeCommandsMap();
 };
