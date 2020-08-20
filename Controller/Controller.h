@@ -40,19 +40,6 @@ private:
     std::shared_ptr<IOutputManager> Output_manager;
     std::shared_ptr<ISync> Sync_manager;
 
-    const std::map<CommandType, int> command_priority
-    {
-        {CommandType::help,            0},
-        {CommandType::filter,          1},
-        {CommandType::inverted_filter, 1},
-        {CommandType::origin,          1},
-        {CommandType::target,          1},
-        {CommandType::clean,           2},
-        {CommandType::balance,         3},
-        {CommandType::sync,            3},
-        {CommandType::version,            0},
-    };
-
     std::map<CommandType, std::shared_ptr<ICommand>> Commands;
 
 };

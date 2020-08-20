@@ -24,22 +24,22 @@ int main(int argc, char* argv[])
     // Set commands
     std::map<CommandType, std::shared_ptr<ICommand>> commands;
     commands.insert(std::make_pair(
-            CommandType::origin, new CommandAddOrigin(CommandType::origin, {"-O", "--origin"})));
+            CommandType::origin, new CommandAddOrigin(CommandType::origin, 1, {"-O", "--origin"})));
 
     commands.insert(std::make_pair(
-            CommandType::target, new CommandAddTarget(CommandType::target, {"-T", "--target"})));
+            CommandType::target, new CommandAddTarget(CommandType::target, 1, {"-T", "--target"})));
 
     commands.insert(std::make_pair(
-            CommandType::sync, new CommandSync(CommandType::sync, {"-S", "--sync"})));
+            CommandType::sync, new CommandSync(CommandType::sync, 3, {"-S", "--sync"})));
 
     commands.insert(std::make_pair(
-            CommandType::balance, new CommandBalance(CommandType::balance, {"-B", "--balance"})));
+            CommandType::balance, new CommandBalance(CommandType::balance, 3, {"-B", "--balance"})));
 
     commands.insert(std::make_pair(
-            CommandType::clean, new CommandCleanTarget(CommandType::clean, {"-C", "--clean"})));
+            CommandType::clean, new CommandCleanTarget(CommandType::clean, 2, {"-C", "--clean"})));
 
     commands.insert(std::make_pair(
-            CommandType::version, new CommandVersion(programVersion ,CommandType::version, {"-V", "--version"})));
+            CommandType::version, new CommandVersion(programVersion ,CommandType::version, 0, {"-V", "--version"})));
 
     std::shared_ptr<IController> Sync_controller
     {new Controller(true ,Input_manager, Output_manager, Sync_manager, commands)};

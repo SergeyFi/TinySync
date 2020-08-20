@@ -22,15 +22,12 @@ void Controller::InputCommand(std::vector<Command> commands)
 {
     std::sort(commands.begin(), commands.end(), [this](const Command& a, const Command& b)
     {
-        return command_priority.find(a.command)->second < command_priority.find(b.command)->second;
+        return Commands[a.command]->GetCommandPriority() < Commands[b.command]->GetCommandPriority();
     });
 
     for (const auto& command : commands)
     {
-        if (Commands[command.command])
-        {
-            Commands[command.command]->Execute(command.arguments, this);
-        }
+        Commands[command.command]->Execute(command.arguments, this);
     }
 }
 
