@@ -10,6 +10,7 @@
 #include "Commands/CommandBalance.h"
 #include "Commands/CommandCleanTarget.h"
 #include "Commands/CommandVersion.h"
+#include "Commands/CommandHelp.h"
 
 int main(int argc, char* argv[])
 {
@@ -40,6 +41,9 @@ int main(int argc, char* argv[])
 
     commands.insert(std::make_pair(
             CommandType::version, new CommandVersion(programVersion ,CommandType::version, 0, {"-V", "--version"})));
+
+    commands.insert(std::make_pair(
+            CommandType::help, new CommandHelp(CommandType::help, 0, {"-H", "--help"})));
 
     std::shared_ptr<IController> Sync_controller
     {new Controller(true ,Input_manager, Output_manager, Sync_manager, commands)};
