@@ -43,8 +43,7 @@ int main(int argc, char* argv[])
     commands.emplace_back(new CommandSyncUpdate{"SyncUpdate",3, {"-SU", "--syncUpdate"}, 0, SyncManager.get()});
 
 
-    std::shared_ptr<IController> Sync_controller
-    {new Controller(commands)};
+    std::shared_ptr<IController> Sync_controller{new Controller(commands)};
 
     InputManager->AddController(Sync_controller);
 
