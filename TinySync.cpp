@@ -15,40 +15,40 @@
 
 int main(int argc, char* argv[])
 {
-    const std::string programVersion = "0.2a";
+    const std::string programVersion = "0.3a-2";
 
-    std::shared_ptr<IInputManager> Input_manager {new InputManager()};
+    std::shared_ptr<IInputManager> InputManager {new class InputManager()};
 
-    std::shared_ptr<IOutputManager> Output_manager {new OutputManager()};
+    std::shared_ptr<IOutputManager> OutputManager {new class OutputManager()};
 
-    std::shared_ptr<ISync> Sync_manager {new SyncManager()};
+    std::shared_ptr<ISync> SyncManager {new class SyncManager()};
 
     // Set commands
     std::vector<std::shared_ptr<ICommand>> commands;
 
-    commands.emplace_back(new CommandAddOrigin{"Origin", 1, {"-O", "--origin"}, 1});
+    commands.emplace_back(new CommandAddOrigin{"Origin", 1, {"-O", "--origin"}, 1, SyncManager.get()});
 
-    commands.emplace_back(new CommandAddTarget{"Target",1, {"-T", "--target"}, 1});
+    commands.emplace_back(new CommandAddTarget{"Target",1, {"-T", "--target"}, 1, SyncManager.get()});
 
-    commands.emplace_back(new CommandSync{"Sync",3, {"-S", "--sync"}, 0});
+    commands.emplace_back(new CommandSync{"Sync",3, {"-S", "--sync"}, 0, SyncManager.get()});
 
-    commands.emplace_back(new CommandBalance{"Balance", 3, {"-B", "--balance"}, 0});
+    commands.emplace_back(new CommandBalance{"Balance", 3, {"-B", "--balance"}, 0, SyncManager.get()});
 
-    commands.emplace_back(new CommandCleanTarget{"Clean", 2, {"-C", "--clean"}, 0});
+    commands.emplace_back(new CommandCleanTarget{"Clean", 2, {"-C", "--clean"}, 0, SyncManager.get()});
 
-    commands.emplace_back(new CommandVersion{"Version", programVersion, 0, {"-V", "--version"}, 0});
+    commands.emplace_back(new CommandVersion{"Version", programVersion, 0, {"-V", "--version"}, 0, OutputManager.get()});
 
-    commands.emplace_back(new CommandHelp{"Help",0, {"-H", "--help"}, 0});
+    commands.emplace_back(new CommandHelp{"Help",0, {"-H", "--help"}, 0, OutputManager.get()});
 
-    commands.emplace_back(new CommandSyncUpdate{"SyncUpdate",3, {"-SU", "--syncUpdate"}, 0});
+    commands.emplace_back(new CommandSyncUpdate{"SyncUpdate",3, {"-SU", "--syncUpdate"}, 0, SyncManager.get()});
 
 
     std::shared_ptr<IController> Sync_controller
-    {new Controller(true ,Input_manager, Output_manager, Sync_manager, commands)};
+    {new Controller(commands)};
 
-    Input_manager->AddController(Sync_controller);
+    InputManager->AddController(Sync_controller);
 
-    Input_manager->InputArguments(argc, argv);
+    InputManager->InputArguments(argc, argv);
 
     return 0;
 }

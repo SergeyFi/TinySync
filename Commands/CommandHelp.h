@@ -1,11 +1,21 @@
 #pragma once
 
 #include "CommandBase.h"
-#include "../Controller/IGetOutputManager.h"
+#include "IOutputManager.h"
 
 class CommandHelp: public CommandBase
 {
-    using CommandBase::CommandBase;
+public:
+
+    CommandHelp(std::string commandName, int priority, std::set<std::string> commands, int argc, IOutputManager* OutManager)
+    : CommandBase(commandName ,priority, commands, argc)
+    {
+        OutputManager = OutManager;
+    }
 
     void Execute(std::vector<std::string> arguments, IController* controller) override;
+
+private:
+
+    IOutputManager* OutputManager;
 };
