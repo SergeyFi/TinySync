@@ -10,7 +10,7 @@ TinySync - small program for local file synchronization.
  * Set path to origin: -O your_path or --origin your_path
  * Set path to target: -T your_path or -- target your_path
  * Sync: -S or --sync
- * Sync with update olf files: -SU or --syncUpdate
+ * Sync with update old files: -SU or --syncUpdate
  * Balance: -B or --balance
  * Clean: -C or --clean
  * Version: -V or --version
