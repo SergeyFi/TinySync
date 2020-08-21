@@ -18,6 +18,8 @@ public:
 
     void BalanceFiles() override;
 
+    void SyncUpdate() override;
+
 private:
 
     std::string origin;

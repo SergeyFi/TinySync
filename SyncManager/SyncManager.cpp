@@ -97,3 +97,16 @@ bool SyncManager::TargetPathCheck()
 
     return true;
 }
+
+void SyncManager::SyncUpdate()
+{
+    bool targetCheck = TargetPathCheck();
+    bool originCheck = OriginPathCheck();
+
+    if (targetCheck && originCheck)
+    {
+        namespace fs = std::filesystem;
+
+        fs::copy(origin, target, fs::copy_options::update_existing | fs::copy_options::recursive);
+    }
+}

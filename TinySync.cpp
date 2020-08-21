@@ -11,6 +11,7 @@
 #include "Commands/CommandCleanTarget.h"
 #include "Commands/CommandVersion.h"
 #include "Commands/CommandHelp.h"
+#include "Commands/CommandSyncUpdate.h"
 
 int main(int argc, char* argv[])
 {
@@ -38,6 +39,8 @@ int main(int argc, char* argv[])
     commands.emplace_back(new CommandVersion{"Version", programVersion, 0, {"-V", "--version"}, 0});
 
     commands.emplace_back(new CommandHelp{"Help",0, {"-H", "--help"}, 0});
+
+    commands.emplace_back(new CommandSyncUpdate{"SyncUpdate",3, {"-SU", "--syncUpdate"}, 0});
 
 
     std::shared_ptr<IController> Sync_controller
