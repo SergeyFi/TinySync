@@ -21,8 +21,6 @@ public:
         std::shared_ptr<IOutputManager>& Output_manager, std::shared_ptr<ISync>& Sync_manager,
         std::vector<std::shared_ptr<ICommand>>& New_Commands);
 
-    void InputConsoleArgument(int argc, char* argv[]) override;
-
     void InputCommand(std::vector<Command> commands) override;
 
     bool debug;

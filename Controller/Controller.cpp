@@ -16,11 +16,6 @@ Controller::Controller(bool debug, std::shared_ptr<IInputManager>& Input_manager
     GenerateCommandsMap();
 }
 
-void Controller::InputConsoleArgument(int argc, char* argv[])
-{
-    Input_manager->InputArguments(argc, argv);
-}
-
 void Controller::InputCommand(std::vector<Command> commands)
 {
     std::sort(commands.begin(), commands.end(), [this](const Command& a, const Command& b)
