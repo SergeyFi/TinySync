@@ -14,6 +14,8 @@ public:
 
     virtual void Sync() = 0;
 
+    virtual void SyncUpdate() = 0;
+
     virtual void CleanTarget() = 0;
 
     virtual void BalanceFiles() = 0;

@@ -25,7 +25,7 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
         if (commandsMap.count(currentArgument) > 0)
         {
             Command new_command;
-            new_command.command = commandsMap.find(currentArgument)->second;
+            new_command.commandName = commandsMap.find(currentArgument)->second;
 
             commands.push_back(new_command);
         }
@@ -51,13 +51,13 @@ void CommandDecoder::MakeCommandsMap()
 
     if (ControllerCommands)
     {
-        const auto& commands = ControllerCommands->GetCommands();
+        const auto& commands = ControllerCommands->GetCommandsMap();
 
-        for (auto& [commandType, Command] : commands)
+        for (auto& [commandsList, Command] : commands)
         {
-            for (auto& commandRaw : Command->GetRawCommands())
+            for (auto& commandArgument : Command->GetCommandsList().commandsList)
             {
-                commandsMap[commandRaw] = commandType;
+                commandsMap[commandArgument] = Command->GetCommandName();
             }
         }
     }

@@ -2,29 +2,36 @@
 
 #include "ICommand.h"
 
+#include "../Logger/GetLogger.h"
+
 class CommandBase : public ICommand
 {
 
 public:
 
-    CommandBase(CommandType newName,int priority, std::set<std::string> commands)
+    CommandBase(std::string newCommandName, int priority, std::set<std::string> commands, int argc)
     {
-        name = newName;
         commandPriority = priority;
-        rawCommands = commands;
+        commandsList.commandsList = commands;
+        commandArgumentCount = argc;
+        commandName = newCommandName;
     }
 
-    CommandType GetName() const override;
-
-    std::set<std::string> GetRawCommands() const override;
+    CommandsList GetCommandsList() const override;
 
     int GetCommandPriority() const override;
 
+    std::string GetCommandName() const override;
+
 protected:
 
-    CommandType name;
+    std::string commandName;
 
-    std::set<std::string> rawCommands;
+    CommandsList commandsList;
 
     int commandPriority;
+
+    int commandArgumentCount;
+
+    void ArgumentCountWarning(int argumentsGiven);
 };

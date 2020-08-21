@@ -2,7 +2,6 @@
 
 #include <memory>
 #include <map>
-#include <vector>
 
 #include "IController.h"
 #include "../InputManager/IInputManager.h"
@@ -20,9 +19,7 @@ public:
 
     Controller(bool debug, std::shared_ptr<IInputManager>& Input_manager,
         std::shared_ptr<IOutputManager>& Output_manager, std::shared_ptr<ISync>& Sync_manager,
-        std::map<CommandType, std::shared_ptr<ICommand>>& New_Commands);
-
-    void InputConsoleArgument(int argc, char* argv[]) override;
+        std::vector<std::shared_ptr<ICommand>>& New_Commands);
 
     void InputCommand(std::vector<Command> commands) override;
 
@@ -30,7 +27,7 @@ public:
 
     std::shared_ptr<ISync> GetSyncManager() override;
 
-    std::map<CommandType, std::shared_ptr<ICommand>> GetCommands() const override;
+    const std::map<std::string, std::shared_ptr<ICommand>>& GetCommandsMap() const override;
 
     std::shared_ptr<IOutputManager> GetOutputManager() override;
 
@@ -40,6 +37,9 @@ private:
     std::shared_ptr<IOutputManager> Output_manager;
     std::shared_ptr<ISync> Sync_manager;
 
-    std::map<CommandType, std::shared_ptr<ICommand>> Commands;
+    std::vector<std::shared_ptr<ICommand>> Commands;
+    std::map<std::string, std::shared_ptr<ICommand>> CommandsMap;
+
+    void GenerateCommandsMap();
 
 };

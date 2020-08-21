@@ -2,23 +2,19 @@
 
 #include <string>
 #include <vector>
+#include <set>
 
-enum class CommandType
+struct CommandsList
 {
-    none,
-    origin,
-    target,
-    filter,
-    inverted_filter,
-    sync,
-    clean,
-    balance,
-    help,
-    version
+    std::set<std::string> commandsList;
 };
+
+bool operator < (const CommandsList& a, const CommandsList& b);
+
+bool operator == (const CommandsList& a, const CommandsList& b);
 
 struct Command
 {
-    CommandType command;
+    std::string commandName;
     std::vector<std::string> arguments;
 };

@@ -18,12 +18,16 @@ public:
 
     void BalanceFiles() override;
 
+    void SyncUpdate() override;
+
 private:
 
     std::string origin;
     std::string target;
 
-    bool OriginTargetCheck();
+    bool OriginPathCheck();
+
+    bool TargetPathCheck();
 
     filter filters;
 

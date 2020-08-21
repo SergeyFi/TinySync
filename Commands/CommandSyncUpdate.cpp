@@ -1,7 +1,8 @@
-#include "CommandAddOrigin.h"
+
+#include "CommandSyncUpdate.h"
 #include "IGetSyncManager.h"
 
-void CommandAddOrigin::Execute(std::vector<std::string> arguments, IController* controller)
+void CommandSyncUpdate::Execute(std::vector<std::string> arguments, IController *controller)
 {
     ArgumentCountWarning(arguments.size());
 
@@ -11,7 +12,7 @@ void CommandAddOrigin::Execute(std::vector<std::string> arguments, IController* 
     {
         if (GetSyncManager->GetSyncManager())
         {
-            GetSyncManager->GetSyncManager()->AddOrigin(arguments[0]);
+            GetSyncManager->GetSyncManager()->SyncUpdate();
         }
     }
 }
