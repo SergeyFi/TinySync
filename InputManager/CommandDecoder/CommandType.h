@@ -15,6 +15,6 @@ bool operator == (const CommandsList& a, const CommandsList& b);
 
 struct Command
 {
-    CommandsList command;
+    std::string commandName;
     std::vector<std::string> arguments;
 };

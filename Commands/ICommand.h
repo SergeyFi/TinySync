@@ -15,4 +15,6 @@ public:
 
     virtual int GetCommandPriority() const = 0;
 
+    virtual std::string GetCommandName() const = 0;
+
 };

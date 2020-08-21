@@ -8,5 +8,5 @@
 class IGetCommands
 {
 public:
-    virtual const std::map<CommandsList, std::shared_ptr<ICommand>>& GetCommandsMap() const = 0;
+    virtual const std::map<std::string , std::shared_ptr<ICommand>>& GetCommandsMap() const = 0;
 };

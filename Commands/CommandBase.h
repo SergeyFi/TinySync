@@ -21,6 +21,8 @@ public:
 
     int GetCommandPriority() const override;
 
+    std::string GetCommandName() const override;
+
 protected:
 
     std::string commandName;

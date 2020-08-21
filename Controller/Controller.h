@@ -27,7 +27,7 @@ public:
 
     std::shared_ptr<ISync> GetSyncManager() override;
 
-    const std::map<CommandsList, std::shared_ptr<ICommand>>& GetCommandsMap() const override;
+    const std::map<std::string, std::shared_ptr<ICommand>>& GetCommandsMap() const override;
 
     std::shared_ptr<IOutputManager> GetOutputManager() override;
 
@@ -38,7 +38,7 @@ private:
     std::shared_ptr<ISync> Sync_manager;
 
     std::vector<std::shared_ptr<ICommand>> Commands;
-    std::map<CommandsList, std::shared_ptr<ICommand>> CommandsMap;
+    std::map<std::string, std::shared_ptr<ICommand>> CommandsMap;
 
     void GenerateCommandsMap();
 

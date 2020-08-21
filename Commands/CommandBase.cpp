@@ -18,3 +18,8 @@ void CommandBase::ArgumentCountWarning(int argumentsGiven)
         + " arguments, given " + std::to_string(argumentsGiven), LogType::warning);
     }
 }
+
+std::string CommandBase::GetCommandName() const
+{
+    return commandName;
+}

@@ -20,12 +20,12 @@ void Controller::InputCommand(std::vector<Command> commands)
 {
     std::sort(commands.begin(), commands.end(), [this](const Command& a, const Command& b)
     {
-        return CommandsMap[a.command]->GetCommandPriority() < CommandsMap[b.command]->GetCommandPriority();
+        return CommandsMap[a.commandName]->GetCommandPriority() < CommandsMap[b.commandName]->GetCommandPriority();
     });
 
     for (const auto& command : commands)
     {
-        CommandsMap[command.command]->Execute(command.arguments, this);
+        CommandsMap[command.commandName]->Execute(command.arguments, this);
     }
 }
 
@@ -34,7 +34,7 @@ std::shared_ptr<ISync> Controller::GetSyncManager()
     return Sync_manager;
 }
 
-const std::map<CommandsList, std::shared_ptr<ICommand>>& Controller::GetCommandsMap() const
+const std::map<std::string, std::shared_ptr<ICommand>>& Controller::GetCommandsMap() const
 {
     return CommandsMap;
 }
@@ -48,6 +48,6 @@ void Controller::GenerateCommandsMap()
 {
     for (const auto& command : Commands)
     {
-        CommandsMap[command->GetCommandsList()] = command;
+        CommandsMap[command->GetCommandName()] = command;
     }
 }

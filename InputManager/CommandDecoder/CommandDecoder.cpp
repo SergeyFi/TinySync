@@ -25,7 +25,7 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
         if (commandsMap.count(currentArgument) > 0)
         {
             Command new_command;
-            new_command.command = commandsMap.find(currentArgument)->second;
+            new_command.commandName = commandsMap.find(currentArgument)->second;
 
             commands.push_back(new_command);
         }
@@ -55,9 +55,9 @@ void CommandDecoder::MakeCommandsMap()
 
         for (auto& [commandsList, Command] : commands)
         {
-            for (auto& commandName : commandsList.commandsList)
+            for (auto& commandArgument : Command->GetCommandsList().commandsList)
             {
-                commandsMap[commandName] = commandsList;
+                commandsMap[commandArgument] = Command->GetCommandName();
             }
         }
     }
