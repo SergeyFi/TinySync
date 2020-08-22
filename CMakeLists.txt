@@ -13,13 +13,10 @@ add_executable(TinySync
         Controller/Controller.cpp
         Controller/Controller.h
         Controller/IController.h
-        InputManager/CommandDecoder/CommandType.h
-        InputManager/CommandDecoder/CommandDecoder.cpp
-        InputManager/CommandDecoder/CommandDecoder.h
-        InputManager/CommandDecoder/ICommandDecoder.h
-        InputManager/IInputManager.h
-        InputManager/InputManager.cpp
-        InputManager/InputManager.h
+        CommandDecoder/CommandType.h
+        CommandDecoder/CommandDecoder.cpp
+        CommandDecoder/CommandDecoder.h
+        CommandDecoder/ICommandDecoder.h
         OutputManager/IOutputManager.h
         OutputManager/OutputManager.cpp
         OutputManager/OutputManager.h
@@ -27,4 +24,30 @@ add_executable(TinySync
         SyncManager/ISync.h
         SyncManager/SyncManager.cpp
         SyncManager/SyncManager.h
-        TinySync.cpp  Logger/ILogger.h Logger/Logger.cpp Logger/Logger.h Logger/GetLogger.h Logger/GetLogger.cpp Commands/ICommand.h Commands/CommandAddOrigin.cpp Commands/CommandAddOrigin.h Controller/IGetSyncManager.h Commands/CommandAddTarget.cpp Commands/CommandAddTarget.h Commands/CommandSync.cpp Commands/CommandSync.h Commands/CommandBalance.cpp Commands/CommandBalance.h Commands/CommandCleanTarget.cpp Commands/CommandCleanTarget.h Commands/CommandBase.cpp Commands/CommandBase.h Controller/IGetCommands.h Controller/IGetOutputManager.h Commands/CommandVersion.cpp Commands/CommandVersion.h Commands/CommandHelp.cpp Commands/CommandHelp.h InputManager/CommandDecoder/CommandType.cpp Commands/CommandSyncUpdate.cpp Commands/CommandSyncUpdate.h)
+        TinySync.cpp
+        Logger/ILogger.h
+        Logger/Logger.cpp
+        Logger/Logger.h
+        Logger/GetLogger.h
+        Logger/GetLogger.cpp
+        Commands/ICommand.h
+        Commands/CommandAddOrigin.cpp
+        Commands/CommandAddOrigin.h
+        Commands/CommandAddTarget.cpp
+        Commands/CommandAddTarget.h
+        Commands/CommandSync.cpp
+        Commands/CommandSync.h
+        Commands/CommandBalance.cpp
+        Commands/CommandBalance.h
+        Commands/CommandCleanTarget.cpp
+        Commands/CommandCleanTarget.h
+        Commands/CommandBase.cpp
+        Commands/CommandBase.h
+        Controller/IGetCommands.h
+        Commands/CommandVersion.cpp
+        Commands/CommandVersion.h
+        Commands/CommandHelp.cpp
+        Commands/CommandHelp.h
+        CommandDecoder/CommandType.cpp
+        Commands/CommandSyncUpdate.cpp
+        Commands/CommandSyncUpdate.h)

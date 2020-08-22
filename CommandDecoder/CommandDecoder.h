@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 #include <map>
 #include <string>
 #include <vector>
@@ -12,13 +13,13 @@ class CommandDecoder : public ICommandDecoder
 {
 public:
 
-    CommandDecoder(std::shared_ptr<IController>& Controller);
+    CommandDecoder(IController* Controller);
     
     void AddRawData(int argc, char* argv[]) override;
 
 private:
 
-    std::shared_ptr<IController> Controller;
+    IController* Controller;
 
     std::map<std::string, std::string> commandsMap;
 

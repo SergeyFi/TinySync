@@ -1,7 +1,6 @@
 #include <memory>
 
 #include "Controller/Controller.h"
-#include "InputManager/InputManager.h"
 #include "OutputManager/OutputManager.h"
 #include "SyncManager/SyncManager.h"
 #include "Commands/CommandAddOrigin.h"
@@ -12,12 +11,12 @@
 #include "Commands/CommandVersion.h"
 #include "Commands/CommandHelp.h"
 #include "Commands/CommandSyncUpdate.h"
+#include "CommandDecoder/ICommandDecoder.h"
+#include "CommandDecoder/CommandDecoder.h"
 
 int main(int argc, char* argv[])
 {
     const std::string programVersion = "0.3a-2";
-
-    std::shared_ptr<IInputManager> InputManager {new class InputManager()};
 
     std::shared_ptr<IOutputManager> OutputManager {new class OutputManager()};
 
@@ -45,9 +44,9 @@ int main(int argc, char* argv[])
 
     std::shared_ptr<IController> Sync_controller{new Controller(commands)};
 
-    InputManager->AddController(Sync_controller);
+    std::shared_ptr<ICommandDecoder> CommandDecoder {new class CommandDecoder(Sync_controller.get())};
 
-    InputManager->InputArguments(argc, argv);
+    CommandDecoder->AddRawData(argc, argv);
 
     return 0;
 }

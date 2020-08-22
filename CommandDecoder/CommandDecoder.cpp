@@ -2,7 +2,7 @@
 #include <vector>
 #include "../Logger/GetLogger.h"
 
-CommandDecoder::CommandDecoder(std::shared_ptr<IController>& Controller)
+CommandDecoder::CommandDecoder(IController* Controller)
 {
     this->Controller = Controller;
 }
@@ -47,7 +47,7 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
 
 void CommandDecoder::MakeCommandsMap()
 {
-    auto ControllerCommands = std::dynamic_pointer_cast<IGetCommands>(Controller);
+    auto ControllerCommands = dynamic_cast<IGetCommands*>(Controller);
 
     if (ControllerCommands)
     {

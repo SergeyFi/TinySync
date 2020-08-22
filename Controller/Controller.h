@@ -4,9 +4,6 @@
 #include <map>
 
 #include "IController.h"
-#include "../InputManager/IInputManager.h"
-#include "../OutputManager/IOutputManager.h"
-#include "../SyncManager/ISync.h"
 #include "../Commands/ICommand.h"
 #include "IGetCommands.h"
 
