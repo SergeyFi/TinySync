@@ -3,15 +3,15 @@
 #include <memory>
 #include <map>
 
-#include "IController.h"
+#include "ICommandExecutor.h"
 #include "../Commands/ICommand.h"
 #include "IGetCommands.h"
 
-class Controller : public IController, public IGetCommands
+class CommandExecutor : public ICommandExecutor, public IGetCommands
 {
 public:
 
-    Controller(std::vector<std::shared_ptr<ICommand>>& New_Commands);
+    CommandExecutor(std::vector<std::shared_ptr<ICommand>>& NewCommands);
 
     void InputCommand(std::vector<Command> commands) override;
 

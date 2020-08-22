@@ -8,5 +8,5 @@ public:
 
     virtual void PrintHelp() = 0;
 
-    virtual void PrintVesrion(std::string version) const = 0;
+    virtual void PrintVersion(std::string version) const = 0;
 };

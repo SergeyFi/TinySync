@@ -1,9 +1,9 @@
 
 #include "CommandVersion.h"
 
-void CommandVersion::Execute(std::vector<std::string> arguments, IController *controller)
+void CommandVersion::Execute(std::vector<std::string> arguments)
 {
     ArgumentCountWarning(arguments.size());
 
-    OutputManager->PrintVesrion(version);
+    OutputManager->PrintVersion(version);
 }

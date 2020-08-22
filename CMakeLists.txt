@@ -3,16 +3,16 @@ project(TinySync)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(Controller)
+include_directories(CommandExecutor)
 include_directories(InputManager)
 include_directories(InputManager/CommandDecoder)
 include_directories(OutputManager)
 include_directories(SyncManager)
 
 add_executable(TinySync
-        Controller/Controller.cpp
-        Controller/Controller.h
-        Controller/IController.h
+        CommandExecutor/CommandExecutor.cpp
+        CommandExecutor/CommandExecutor.h
+        CommandExecutor/ICommandExecutor.h
         CommandDecoder/CommandType.h
         CommandDecoder/CommandDecoder.cpp
         CommandDecoder/CommandDecoder.h
@@ -43,7 +43,7 @@ add_executable(TinySync
         Commands/CommandCleanTarget.h
         Commands/CommandBase.cpp
         Commands/CommandBase.h
-        Controller/IGetCommands.h
+        CommandExecutor/IGetCommands.h
         Commands/CommandVersion.cpp
         Commands/CommandVersion.h
         Commands/CommandHelp.cpp

@@ -2,9 +2,9 @@
 #include <vector>
 #include "../Logger/GetLogger.h"
 
-CommandDecoder::CommandDecoder(IController* Controller)
+CommandDecoder::CommandDecoder(ICommandExecutor* NewCommandExecutor)
 {
-    this->Controller = Controller;
+    CommandExecutor = NewCommandExecutor;
 }
 
 void CommandDecoder::AddRawData(int argc, char* argv[])
@@ -39,15 +39,15 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
     }
 
 
-    if (Controller)
+    if (CommandExecutor)
     {
-        Controller->InputCommand(commands);
+        CommandExecutor->InputCommand(commands);
     }
 }
 
 void CommandDecoder::MakeCommandsMap()
 {
-    auto ControllerCommands = dynamic_cast<IGetCommands*>(Controller);
+    auto ControllerCommands = dynamic_cast<IGetCommands*>(CommandExecutor);
 
     if (ControllerCommands)
     {

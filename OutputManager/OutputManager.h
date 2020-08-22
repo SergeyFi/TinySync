@@ -7,5 +7,5 @@ public:
 
     void PrintHelp() override;
 
-    void PrintVesrion(std::string version) const override;
+    void PrintVersion(std::string version) const override;
 };

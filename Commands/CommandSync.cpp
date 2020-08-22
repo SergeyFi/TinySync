@@ -1,7 +1,7 @@
 
 #include "CommandSync.h"
 
-void CommandSync::Execute(std::vector<std::string> arguments, IController *controller)
+void CommandSync::Execute(std::vector<std::string> arguments)
 {
     ArgumentCountWarning(arguments.size());
 

@@ -13,7 +13,7 @@ public:
         OutputManager = OutManager;
     }
 
-    void Execute(std::vector<std::string> arguments, IController* controller) override;
+    void Execute(std::vector<std::string> arguments) override;
 
 private:
 

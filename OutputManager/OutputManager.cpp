@@ -14,7 +14,7 @@ void OutputManager::PrintHelp()
     std::cout << "Current version: -V or --version" << std::endl;
 }
 
-void OutputManager::PrintVesrion(std::string version) const
+void OutputManager::PrintVersion(std::string version) const
 {
     std::cout << "TinySync v" << version << std::endl;
 }

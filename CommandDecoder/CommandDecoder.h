@@ -6,20 +6,20 @@
 #include <memory>
 
 #include "ICommandDecoder.h"
-#include "../../Controller/IController.h"
-#include "../Controller/IGetCommands.h"
+#include "../CommandExecutor/ICommandExecutor.h"
+#include "../CommandExecutor/IGetCommands.h"
 
 class CommandDecoder : public ICommandDecoder
 {
 public:
 
-    CommandDecoder(IController* Controller);
+    CommandDecoder(ICommandExecutor* NewCommandExecutor);
     
     void AddRawData(int argc, char* argv[]) override;
 
 private:
 
-    IController* Controller;
+    ICommandExecutor* CommandExecutor;
 
     std::map<std::string, std::string> commandsMap;
 

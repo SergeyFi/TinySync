@@ -2,7 +2,7 @@
 
 #include "../CommandDecoder/CommandType.h"
 
-class IController
+class ICommandExecutor
 {
 public:
 

@@ -1,15 +1,15 @@
-﻿#include "Controller.h"
+﻿#include "CommandExecutor.h"
 
 #include <algorithm>
 
-Controller::Controller(std::vector<std::shared_ptr<ICommand>>& New_Commands)
+CommandExecutor::CommandExecutor(std::vector<std::shared_ptr<ICommand>>& NewCommands)
 {
-    Commands = New_Commands;
+    Commands = NewCommands;
 
     GenerateCommandsMap();
 }
 
-void Controller::InputCommand(std::vector<Command> commands)
+void CommandExecutor::InputCommand(std::vector<Command> commands)
 {
     std::sort(commands.begin(), commands.end(), [this](const Command& a, const Command& b)
     {
@@ -18,16 +18,16 @@ void Controller::InputCommand(std::vector<Command> commands)
 
     for (const auto& command : commands)
     {
-        CommandsMap[command.commandName]->Execute(command.arguments, this);
+        CommandsMap[command.commandName]->Execute(command.arguments);
     }
 }
 
-const std::map<std::string, std::shared_ptr<ICommand>>& Controller::GetCommandsMap() const
+const std::map<std::string, std::shared_ptr<ICommand>>& CommandExecutor::GetCommandsMap() const
 {
     return CommandsMap;
 }
 
-void Controller::GenerateCommandsMap()
+void CommandExecutor::GenerateCommandsMap()
 {
     for (const auto& command : Commands)
     {

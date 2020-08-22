@@ -1,6 +1,6 @@
 #include <memory>
 
-#include "Controller/Controller.h"
+#include "CommandExecutor/CommandExecutor.h"
 #include "OutputManager/OutputManager.h"
 #include "SyncManager/SyncManager.h"
 #include "Commands/CommandAddOrigin.h"
@@ -42,9 +42,9 @@ int main(int argc, char* argv[])
     commands.emplace_back(new CommandSyncUpdate{"SyncUpdate",3, {"-SU", "--syncUpdate"}, 0, SyncManager.get()});
 
 
-    std::shared_ptr<IController> Sync_controller{new Controller(commands)};
+    std::shared_ptr<ICommandExecutor> CommandExecutor{new class CommandExecutor(commands)};
 
-    std::shared_ptr<ICommandDecoder> CommandDecoder {new class CommandDecoder(Sync_controller.get())};
+    std::shared_ptr<ICommandDecoder> CommandDecoder {new class CommandDecoder(CommandExecutor.get())};
 
     CommandDecoder->AddRawData(argc, argv);
 

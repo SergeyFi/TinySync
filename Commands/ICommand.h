@@ -3,13 +3,13 @@
 #include <vector>
 #include <string>
 #include <set>
-#include "IController.h"
+#include "../CommandExecutor/ICommandExecutor.h"
 
 class ICommand
 {
 public:
 
-    virtual void Execute(std::vector<std::string> arguments, IController* controller) = 0;
+    virtual void Execute(std::vector<std::string> arguments) = 0;
 
     virtual CommandsList GetCommandsList() const = 0;
 
