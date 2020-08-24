@@ -2,9 +2,10 @@
 #include <vector>
 #include "../Logger/GetLogger.h"
 
-CommandDecoder::CommandDecoder(ICommandExecutor* NewCommandExecutor)
+CommandDecoder::CommandDecoder(ICommandExecutor* NewCommandExecutor, ICommandConstructor* NewCommandConstructor)
 {
     CommandExecutor = NewCommandExecutor;
+    CommandConstructor = NewCommandConstructor;
 }
 
 void CommandDecoder::AddRawData(int argc, char* argv[])
@@ -25,7 +26,7 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
         if (commandsMap.count(currentArgument) > 0)
         {
             Command new_command;
-            new_command.commandName = commandsMap.find(currentArgument)->second;
+            new_command.commandFullName = commandsMap.find(currentArgument)->second;
 
             commands.push_back(new_command);
         }
@@ -47,18 +48,11 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
 
 void CommandDecoder::MakeCommandsMap()
 {
-    auto ControllerCommands = dynamic_cast<IGetCommands*>(CommandExecutor);
-
-    if (ControllerCommands)
+    for (auto& commandFullName : CommandConstructor->GetCommandsFullName())
     {
-        const auto& commands = ControllerCommands->GetCommandsMap();
-
-        for (auto& [commandsList, Command] : commands)
+        for (auto& name : commandFullName)
         {
-            for (auto& commandArgument : Command->GetCommandsList().commandsList)
-            {
-                commandsMap[commandArgument] = Command->GetCommandName();
-            }
+            commandsMap[name] = commandFullName;
         }
     }
 }

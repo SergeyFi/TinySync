@@ -1,11 +1,11 @@
 #include "CommandType.h"
 
-bool operator < (const CommandsList& a, const CommandsList& b)
+bool operator < (const CommandFullName& a, const CommandFullName& b)
 {
-    return a.commandsList < b.commandsList;
+    return a.fullName < b.fullName;
 }
 
-bool operator == (const CommandsList& a, const CommandsList& b)
+bool operator == (const CommandFullName& a, const CommandFullName& b)
 {
-    return a.commandsList == b.commandsList;
+    return a.fullName == b.fullName;
 }

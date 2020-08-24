@@ -1,9 +1,9 @@
 #include "CommandAddOrigin.h"
 
 
-void CommandAddOrigin::Execute(std::vector<std::string> arguments)
+void CommandAddOrigin::Execute()
 {
-    ArgumentCountWarning(arguments.size());
+    ArgumentCountWarning(commandArguments.size());
 
-    SyncManager->AddOrigin(arguments[0]);
+    SyncManager->AddOrigin(commandArguments[0]);
 }

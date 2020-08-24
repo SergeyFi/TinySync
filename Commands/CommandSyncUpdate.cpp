@@ -1,9 +1,9 @@
 
 #include "CommandSyncUpdate.h"
 
-void CommandSyncUpdate::Execute(std::vector<std::string> arguments)
+void CommandSyncUpdate::Execute()
 {
-    ArgumentCountWarning(arguments.size());
+    ArgumentCountWarning(commandArguments.size());
 
     SyncManager->SyncUpdate();
 }

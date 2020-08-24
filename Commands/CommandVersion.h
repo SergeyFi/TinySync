@@ -7,15 +7,15 @@ class CommandVersion: public CommandBase
 {
 public:
 
-    CommandVersion(std::string commandName, std::string newVersion, int priority, std::set<std::string> commands, int argc,
+    CommandVersion(std::string commandName, std::string newVersion, int priority, int argc,
                    IOutputManager* OutManager)
-    : CommandBase(commandName ,priority, commands, argc)
+    : CommandBase(std::move(commandName) ,priority, argc)
     {
-        version = newVersion;
+        version = std::move(newVersion);
         OutputManager = OutManager;
     }
 
-    void Execute(std::vector<std::string> arguments) override;
+    void Execute() override;
 
 private:
 

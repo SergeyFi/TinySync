@@ -2,35 +2,29 @@
 
 #include <algorithm>
 
-CommandExecutor::CommandExecutor(std::vector<std::shared_ptr<ICommand>>& NewCommands)
+CommandExecutor::CommandExecutor(ICommandConstructor* NewCommandConstructor)
 {
-    Commands = NewCommands;
-
-    GenerateCommandsMap();
+    CommandConstructor = NewCommandConstructor;
 }
 
 void CommandExecutor::InputCommand(std::vector<Command> commands)
 {
-    std::sort(commands.begin(), commands.end(), [this](const Command& a, const Command& b)
+    std::vector<ICommand*> commandsToExecute;
+
+    for (auto& command : commands)
     {
-        return CommandsMap[a.commandName]->GetCommandPriority() < CommandsMap[b.commandName]->GetCommandPriority();
+        commandsToExecute.push_back(CommandConstructor->GetCommand(command.commandFullName));
+        commandsToExecute.back()->AddCommandArguments(command.arguments);
+    }
+
+    std::sort(commandsToExecute.begin(), commandsToExecute.end(), [](const ICommand* a, const ICommand* b)
+    {
+        return a->GetCommandPriority() < b->GetCommandPriority();
     });
 
-    for (const auto& command : commands)
+    for (auto& command : commandsToExecute)
     {
-        CommandsMap[command.commandName]->Execute(command.arguments);
+        command->Execute();
     }
-}
 
-const std::map<std::string, std::shared_ptr<ICommand>>& CommandExecutor::GetCommandsMap() const
-{
-    return CommandsMap;
-}
-
-void CommandExecutor::GenerateCommandsMap()
-{
-    for (const auto& command : Commands)
-    {
-        CommandsMap[command->GetCommandName()] = command;
-    }
 }

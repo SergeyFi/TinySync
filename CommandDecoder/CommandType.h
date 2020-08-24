@@ -4,17 +4,17 @@
 #include <vector>
 #include <set>
 
-struct CommandsList
+struct CommandFullName
 {
-    std::set<std::string> commandsList;
+    std::set<std::string> fullName;
 };
 
-bool operator < (const CommandsList& a, const CommandsList& b);
+bool operator < (const CommandFullName& a, const CommandFullName& b);
 
-bool operator == (const CommandsList& a, const CommandsList& b);
+bool operator == (const CommandFullName& a, const CommandFullName& b);
 
 struct Command
 {
-    std::string commandName;
+    std::set<std::string> commandFullName;
     std::vector<std::string> arguments;
 };

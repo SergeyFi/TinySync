@@ -50,4 +50,10 @@ add_executable(TinySync
         Commands/CommandHelp.h
         CommandDecoder/CommandType.cpp
         Commands/CommandSyncUpdate.cpp
-        Commands/CommandSyncUpdate.h ADBManager/ADBManager.cpp ADBManager/ADBManager.h ADBManager/IADBManager.h)
+        Commands/CommandSyncUpdate.h
+        ADBManager/ADBManager.cpp
+        ADBManager/ADBManager.h
+        ADBManager/IADBManager.h
+        CommandConstructor/CommandConstructor.cpp
+        CommandConstructor/CommandConstructor.h
+        CommandConstructor/ICommandConstructor.h)

@@ -1,9 +1,9 @@
 
 #include "CommandBalance.h"
 
-void CommandBalance::Execute(std::vector<std::string> arguments)
+void CommandBalance::Execute()
 {
-    ArgumentCountWarning(arguments.size());
+    ArgumentCountWarning(commandArguments.size());
 
     SyncManager->BalanceFiles();
 }

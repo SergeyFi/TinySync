@@ -1,9 +1,9 @@
 
 #include "CommandCleanTarget.h"
 
-void CommandCleanTarget::Execute(std::vector<std::string> arguments)
+void CommandCleanTarget::Execute()
 {
-    ArgumentCountWarning(arguments.size());
+    ArgumentCountWarning(commandArguments.size());
 
     SyncManager->CleanTarget();
 }

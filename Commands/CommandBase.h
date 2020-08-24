@@ -9,29 +9,34 @@ class CommandBase : public ICommand
 
 public:
 
-    CommandBase(std::string newCommandName, int priority, std::set<std::string> commands, int argc)
+    CommandBase(std::string newCommandName, int priority, int argc)
     {
         commandPriority = priority;
-        commandsList.commandsList = commands;
         commandArgumentCount = argc;
-        commandName = newCommandName;
+        commandName = std::move(newCommandName);
     }
 
-    CommandsList GetCommandsList() const override;
+    CommandFullName GetCommandsList() const override;
 
     int GetCommandPriority() const override;
 
     std::string GetCommandName() const override;
 
+    void AddCommandArguments(std::vector<std::string> arguments) override;
+
+    void SetCommandFullName(std::set<std::string> fullName) override;
+
 protected:
 
     std::string commandName;
 
-    CommandsList commandsList;
+    CommandFullName commandsList;
 
     int commandPriority;
 
     int commandArgumentCount;
+
+    std::vector<std::string> commandArguments;
 
     void ArgumentCountWarning(int argumentsGiven);
 };

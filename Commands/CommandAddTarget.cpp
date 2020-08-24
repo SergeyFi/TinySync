@@ -2,9 +2,9 @@
 #include "CommandAddTarget.h"
 
 
-void CommandAddTarget::Execute(std::vector<std::string> arguments)
+void CommandAddTarget::Execute()
 {
-    ArgumentCountWarning(arguments.size());
+    ArgumentCountWarning(commandArguments.size());
 
-    SyncManager->AddTarget(arguments[0]);
+    SyncManager->AddTarget(commandArguments[0]);
 }

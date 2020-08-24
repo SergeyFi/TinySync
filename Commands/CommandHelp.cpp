@@ -1,9 +1,9 @@
 
 #include "CommandHelp.h"
 
-void CommandHelp::Execute(std::vector<std::string> arguments)
+void CommandHelp::Execute()
 {
-    ArgumentCountWarning(arguments.size());
+    ArgumentCountWarning(commandArguments.size());
 
     OutputManager->PrintHelp();
 }

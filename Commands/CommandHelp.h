@@ -7,13 +7,13 @@ class CommandHelp: public CommandBase
 {
 public:
 
-    CommandHelp(std::string commandName, int priority, std::set<std::string> commands, int argc, IOutputManager* OutManager)
-    : CommandBase(commandName ,priority, commands, argc)
+    CommandHelp(std::string commandName, int priority, int argc, IOutputManager* OutManager)
+    : CommandBase(std::move(commandName) ,priority, argc)
     {
         OutputManager = OutManager;
     }
 
-    void Execute(std::vector<std::string> arguments) override;
+    void Execute() override;
 
 private:
 
