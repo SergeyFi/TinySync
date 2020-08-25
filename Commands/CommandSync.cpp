@@ -3,7 +3,15 @@
 
 void CommandSync::Execute()
 {
-    ArgumentCountWarning(commandArguments.size());
+    if (commandArguments[0] == "-u")
+    {
+        SyncManager->SyncUpdate();
+    }
 
-    SyncManager->Sync();
+    else
+    {
+        ArgumentCountWarning(commandArguments.size());
+
+        SyncManager->Sync();
+    }
 }

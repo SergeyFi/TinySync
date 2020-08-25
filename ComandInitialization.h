@@ -9,7 +9,6 @@
 #include "Commands/CommandCleanTarget.h"
 #include "Commands/CommandVersion.h"
 #include "Commands/CommandHelp.h"
-#include "Commands/CommandSyncUpdate.h"
 
 
 void InitCommands(ICommandConstructor* CommandConstructor, ISync* SyncManager, IOutputManager* OutputManager)

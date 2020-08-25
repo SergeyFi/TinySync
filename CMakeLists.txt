@@ -46,8 +46,6 @@ add_executable(TinySync
         Commands/CommandVersion.h
         Commands/CommandHelp.cpp
         Commands/CommandHelp.h
-        Commands/CommandSyncUpdate.cpp
-        Commands/CommandSyncUpdate.h
         ADBManager/ADBManager.cpp
         ADBManager/ADBManager.h
         ADBManager/IADBManager.h
