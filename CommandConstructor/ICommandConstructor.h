@@ -5,18 +5,18 @@
 #include <set>
 
 #include "../Commands/CommandBase.h"
+#include "../DataTypes/DataTypes.h"
 
 class ICommandConstructor
 {
 private:
 
-    virtual void AddNewCommand(std::set<std::string> fullName ,
-                               std::function<ICommand*(std::vector<std::string> arg)> commandConstructor) = 0;
+    virtual void AddNewCommand(CFullName fullName ,CConstructor commandConstructor) = 0;
 
 public:
 
     template<class CommandClass, class ... ConstructorArguments>
-    void AddCommand(std::set<std::string> fullName,ConstructorArguments ... args)
+    void AddCommand(CFullName fullName, ConstructorArguments ... args)
     {
         auto newConstructor = [fullName, args...](std::vector<std::string> arg)
         {
@@ -26,7 +26,7 @@ public:
         AddNewCommand(fullName, newConstructor);
     }
 
-    virtual ICommand* GetCommand(std::set<std::string>& commandArguments, std::vector<std::string>& arg) = 0;
+    virtual ICommand* GetCommand(CFullName& commandFullName, CArg& arg) = 0;
 
-    virtual std::vector<std::set<std::string>> GetCommandsFullName() = 0;
+    virtual std::vector<CFullName> GetCommandsFullNames() = 0;
 };

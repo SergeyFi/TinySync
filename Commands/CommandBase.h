@@ -5,14 +5,14 @@
 #include "../Logger/GetLogger.h"
 #include "Priority.h"
 #include "ArgumentCount.h"
+#include "../DataTypes/DataTypes.h"
 
 class CommandBase : public ICommand
 {
 
 public:
 
-    explicit CommandBase(std::string newCommandName, std::vector<std::string> arguments, std::set<std::string> fullName,
-                         Priority priority, ArgCount argc)
+    explicit CommandBase(CName newCommandName, CArg arguments, CFullName fullName, Priority priority, ArgCount argc)
     {
         commandPriority = priority.priority;
         commandArgumentCount = argc.count;
@@ -33,15 +33,15 @@ public:
 
 protected:
 
-    std::string commandName;
+    CName commandName;
 
-    CommandFullName commandFullName;
+    CFullName commandFullName;
 
     int commandPriority;
 
     int commandArgumentCount;
 
-    std::vector<std::string> commandArguments;
+    CArg commandArguments;
 
     void ArgumentCountWarning(int argumentsGiven);
 };

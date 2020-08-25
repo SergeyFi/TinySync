@@ -1,6 +1,8 @@
 ﻿#include "CommandDecoder.h"
 #include <vector>
+
 #include "../Logger/GetLogger.h"
+#include "../DataTypes/DataTypes.h"
 
 CommandDecoder::CommandDecoder(ICommandExecutor* NewCommandExecutor, ICommandConstructor* NewCommandConstructor)
 {
@@ -48,7 +50,7 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
 
 void CommandDecoder::MakeCommandsMap()
 {
-    for (auto& commandFullName : CommandConstructor->GetCommandsFullName())
+    for (auto& commandFullName : CommandConstructor->GetCommandsFullNames())
     {
         for (auto& name : commandFullName)
         {

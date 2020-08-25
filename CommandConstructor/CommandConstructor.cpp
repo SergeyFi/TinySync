@@ -2,7 +2,7 @@
 #include "CommandConstructor.h"
 
 
-ICommand* CommandConstructor::GetCommand(std::set<std::string>& commandFullName, std::vector<std::string>& arg)
+ICommand* CommandConstructor::GetCommand(CFullName& commandFullName, CArg& arg)
 {
     if (commandConstructors.count(commandFullName) > 0)
     {
@@ -14,14 +14,14 @@ ICommand* CommandConstructor::GetCommand(std::set<std::string>& commandFullName,
     return nullptr;
 }
 
-std::vector<std::set<std::string>> CommandConstructor::GetCommandsFullName()
+std::vector<CFullName> CommandConstructor::GetCommandsFullNames()
 {
-    return commandsArguments;
+    return commandsFullNames;
 }
 
 void CommandConstructor::AddNewCommand
-(std::set<std::string> commandFullName ,std::function<ICommand*(std::vector<std::string> arg)> commandConstructor)
+(CFullName commandFullName, CConstructor commandConstructor)
 {
     commandConstructors[commandFullName] = std::move(commandConstructor);
-    commandsArguments.push_back(std::move(commandFullName));
+    commandsFullNames.push_back(std::move(commandFullName));
 }
