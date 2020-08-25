@@ -1,9 +1,6 @@
 ﻿#include "CommandDecoder.h"
 #include <vector>
 
-#include "../Logger/Logger.h"
-#include "../DataTypes/DataTypes.h"
-
 CommandDecoder::CommandDecoder(ICommandExecutor* NewCommandExecutor, ICommandConstructor* NewCommandConstructor)
 {
     CommandExecutor = NewCommandExecutor;
@@ -19,11 +16,6 @@ void CommandDecoder::AddRawData(int argc, char* argv[])
     for (auto i = 0; i < argc; ++i)
     {
         std::string currentArgument = argv[i];
-
-        if (!CheckCommand(currentArgument))
-        {
-            break;
-        }
 
         if (commandsMap.count(currentArgument) > 0)
         {
@@ -57,19 +49,4 @@ void CommandDecoder::MakeCommandsMap()
             commandsMap[name] = commandFullName;
         }
     }
-}
-
-bool CommandDecoder::CheckCommand(std::string& command)
-{
-    if (command[0] == '-')
-    {
-        if (commandsMap.count(command) == 0)
-        {
-            Logger::GetLogger()->Log("Command '" + command + "' does not exist.", LogType::error);
-
-            return false;
-        }
-    }
-
-    return true;
 }

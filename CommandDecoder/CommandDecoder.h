@@ -24,6 +24,4 @@ private:
     std::map<std::string, std::set<std::string>> commandsMap;
 
     void MakeCommandsMap();
-
-    bool CheckCommand(std::string& command);
 };
