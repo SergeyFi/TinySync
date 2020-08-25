@@ -56,4 +56,5 @@ add_executable(TinySync
         ADBManager/IADBManager.h
         CommandConstructor/CommandConstructor.cpp
         CommandConstructor/CommandConstructor.h
-        CommandConstructor/ICommandConstructor.h)
+        CommandConstructor/ICommandConstructor.h
+        ADBManager/FileData.h)
