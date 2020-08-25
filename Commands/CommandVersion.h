@@ -7,9 +7,9 @@ class CommandVersion: public CommandBase
 {
 public:
 
-    CommandVersion(std::string commandName, std::string newVersion, int priority, int argc,
-                   IOutputManager* OutManager)
-    : CommandBase(std::move(commandName) ,priority, argc)
+    explicit CommandVersion(std::set<std::string> fullName, std::vector<std::string> arguments,
+                            std::string commandName, std::string newVersion, Priority priority, ArgCount argc,IOutputManager* OutManager)
+    : CommandBase(std::move(commandName), std::move(arguments), std::move(fullName) ,priority, argc)
     {
         version = std::move(newVersion);
         OutputManager = OutManager;

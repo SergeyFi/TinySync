@@ -13,7 +13,7 @@ void CommandExecutor::InputCommand(std::vector<Command> commands)
 
     for (auto& command : commands)
     {
-        commandsToExecute.push_back(CommandConstructor->GetCommand(command.commandFullName));
+        commandsToExecute.push_back(CommandConstructor->GetCommand(command.commandFullName, command.arguments));
         commandsToExecute.back()->AddCommandArguments(command.arguments);
     }
 

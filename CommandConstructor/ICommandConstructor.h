@@ -8,11 +8,25 @@
 
 class ICommandConstructor
 {
+private:
+
+    virtual void AddNewCommand(std::set<std::string> fullName ,
+                               std::function<ICommand*(std::vector<std::string> arg)> commandConstructor) = 0;
+
 public:
 
-    virtual void AddCommand(std::set<std::string> commandArguments,std::function<ICommand*()> commandConstructor) = 0;
+    template<class CommandClass, class ... ConstructorArguments>
+    void AddCommand(std::set<std::string> fullName,ConstructorArguments ... args)
+    {
+        auto newConstructor = [fullName, args...](std::vector<std::string> arg)
+        {
+            return new CommandClass{fullName, arg, args...};
+        };
 
-    virtual ICommand* GetCommand(std::set<std::string>& commandArguments) = 0;
+        AddNewCommand(fullName, newConstructor);
+    }
+
+    virtual ICommand* GetCommand(std::set<std::string>& commandArguments, std::vector<std::string>& arg) = 0;
 
     virtual std::vector<std::set<std::string>> GetCommandsFullName() = 0;
 };

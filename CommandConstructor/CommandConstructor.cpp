@@ -2,18 +2,11 @@
 #include "CommandConstructor.h"
 
 
-void CommandConstructor::AddCommand(std::set<std::string> commandArguments,std::function<ICommand*()> commandConstructor)
-{
-    commandsArguments.push_back(commandArguments);
-    commandConstructors[std::move(commandArguments)] = std::move(commandConstructor);
-}
-
-ICommand* CommandConstructor::GetCommand(std::set<std::string>& commandFullName)
+ICommand* CommandConstructor::GetCommand(std::set<std::string>& commandFullName, std::vector<std::string>& arg)
 {
     if (commandConstructors.count(commandFullName) > 0)
     {
-        auto Command = commandConstructors[commandFullName]();
-        Command->SetCommandFullName(commandFullName);
+        auto Command = commandConstructors[commandFullName](arg);
 
         return Command;
     }
@@ -24,4 +17,11 @@ ICommand* CommandConstructor::GetCommand(std::set<std::string>& commandFullName)
 std::vector<std::set<std::string>> CommandConstructor::GetCommandsFullName()
 {
     return commandsArguments;
+}
+
+void CommandConstructor::AddNewCommand
+(std::set<std::string> commandFullName ,std::function<ICommand*(std::vector<std::string> arg)> commandConstructor)
+{
+    commandConstructors[commandFullName] = std::move(commandConstructor);
+    commandsArguments.push_back(std::move(commandFullName));
 }

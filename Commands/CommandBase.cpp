@@ -7,7 +7,7 @@ int CommandBase::GetCommandPriority() const
 
 CommandFullName CommandBase::GetCommandsList() const
 {
-    return commandsList;
+    return commandFullName;
 }
 
 void CommandBase::ArgumentCountWarning(int argumentsGiven)

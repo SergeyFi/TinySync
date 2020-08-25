@@ -7,8 +7,9 @@ class CommandAddOrigin: public CommandBase
 {
 public:
 
-    CommandAddOrigin(std::string commandName, int priority, int argc, ISync* Sync)
-    : CommandBase(std::move(commandName) ,priority, argc)
+    explicit CommandAddOrigin(std::set<std::string> fullName, std::vector<std::string> arguments, std::string commandName,
+                              Priority priority, ArgCount argc, ISync* Sync)
+    : CommandBase(std::move(commandName), std::move(arguments), std::move(fullName), priority, argc)
     {
         SyncManager = Sync;
     }

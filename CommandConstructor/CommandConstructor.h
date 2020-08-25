@@ -10,16 +10,20 @@
 class CommandConstructor: public ICommandConstructor
 {
 public:
-    void AddCommand(std::set<std::string> commandArguments,std::function<ICommand*()> commandConstructor) override;
 
-    ICommand* GetCommand(std::set<std::string>& commandFullName) override;
+    ICommand* GetCommand(std::set<std::string>& commandFullName, std::vector<std::string>& arg) override;
 
     std::vector<std::set<std::string>> GetCommandsFullName() override;
 
+    void AddNewCommand(std::set<std::string> commandFullName ,
+                       std::function<ICommand*(std::vector<std::string> arg)> commandConstructor) override;
+
 private:
 
-    std::map<std::set<std::string> ,std::function<ICommand*()>> commandConstructors;
+    std::map<std::set<std::string> ,std::function<ICommand*(std::vector<std::string> arg)>> commandConstructors;
 
     std::vector<std::set<std::string>> commandsArguments;
+
+
 };
 

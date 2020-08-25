@@ -7,8 +7,9 @@ class CommandSync : public CommandBase
 {
 public:
 
-    CommandSync(std::string commandName, int priority, int argc, ISync* Sync)
-    : CommandBase(std::move(commandName) ,priority, argc)
+    explicit CommandSync(std::set<std::string> fullName, std::vector<std::string> arguments, std::string commandName,
+                Priority priority, ArgCount argc, ISync* Sync)
+    : CommandBase(std::move(commandName), std::move(arguments), std::move(fullName), priority, argc)
     {
         SyncManager = Sync;
     }

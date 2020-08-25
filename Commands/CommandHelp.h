@@ -7,8 +7,9 @@ class CommandHelp: public CommandBase
 {
 public:
 
-    CommandHelp(std::string commandName, int priority, int argc, IOutputManager* OutManager)
-    : CommandBase(std::move(commandName) ,priority, argc)
+    explicit CommandHelp(std::set<std::string> fullName, std::vector<std::string> arguments, std::string commandName,
+                Priority priority, ArgCount argc, IOutputManager* OutManager)
+    : CommandBase(std::move(commandName), std::move(arguments), std::move(fullName) ,priority, argc)
     {
         OutputManager = OutManager;
     }

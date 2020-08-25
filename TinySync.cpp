@@ -1,4 +1,4 @@
-#define tinySyncVersion "0.3a-3"
+#define tinySyncVersion "0.3a-4"
 
 #include <memory>
 
@@ -26,29 +26,30 @@ int main(int argc, char* argv[])
 
     std::unique_ptr<ICommandConstructor> CommandConstructor {new class CommandConstructor()};
 
-    CommandConstructor->AddCommand({"-V", "--version"}, [OutputManager]()
-    {return new CommandVersion{"Version", tinySyncVersion, 0, 0, OutputManager.get()};});
+    CommandConstructor->AddCommand<CommandVersion>(
+            {"-V", "--version"} ,"Version", tinySyncVersion, Priority(0), ArgCount(0), OutputManager.get());
 
-    CommandConstructor->AddCommand({"-O", "--origin"}, [SyncManager]()
-    {return new CommandAddOrigin{"Origin", 1, 1, SyncManager.get()};});
+    CommandConstructor->AddCommand<CommandAddOrigin>(
+            {"-O", "--origin"} ,"Origin", Priority(1), ArgCount(1), SyncManager.get());
 
-    CommandConstructor->AddCommand({"-T", "--target"}, [SyncManager]()
-    {return new CommandAddTarget{"Target",1, 1, SyncManager.get()};});
+    CommandConstructor->AddCommand<CommandAddTarget>(
+            {"-T", "--target"} ,"Target", Priority(1), ArgCount(1), SyncManager.get());
 
-    CommandConstructor->AddCommand({"-S", "--sync"}, [SyncManager]()
-    {return new CommandSync{"Sync",3, 0, SyncManager.get()};});
+    CommandConstructor->AddCommand<CommandSync>(
+            {"-S", "--sync"} ,"Sync", Priority(3), ArgCount(0), SyncManager.get());
 
-    CommandConstructor->AddCommand({"-B", "--balance"}, [SyncManager]()
-    {return new CommandBalance{"Balance", 3, 0, SyncManager.get()};});
+    CommandConstructor->AddCommand<CommandBalance>(
+            {"-B", "--balance"} ,"Balance", Priority(3), ArgCount(0), SyncManager.get());
 
-    CommandConstructor->AddCommand({"-C", "--clean"}, [SyncManager]()
-    {return new CommandCleanTarget{"Clean", 2, 0, SyncManager.get()};});
+    CommandConstructor->AddCommand<CommandCleanTarget>(
+            {"-C", "--clean"} ,"Clean", Priority(2), ArgCount(0), SyncManager.get());
 
-    CommandConstructor->AddCommand({"-H", "--help"}, [OutputManager]()
-    {return new CommandHelp{"Help",0, 0, OutputManager.get()};});
+    CommandConstructor->AddCommand<CommandHelp>(
+            {"-H", "--help"} ,"Help", Priority(0), ArgCount(0), OutputManager.get());
 
-    CommandConstructor->AddCommand({"-SU", "--syncUpdate"}, [SyncManager]()
-    {return new CommandSyncUpdate{"SyncUpdate",3, 0, SyncManager.get()};});
+    CommandConstructor->AddCommand<CommandSyncUpdate>(
+            {"-SU", "--syncUpdate"} ,"SyncUpdate", Priority(3), ArgCount(0), SyncManager.get());
+
 
     std::shared_ptr<ICommandExecutor> CommandExecutor{new class CommandExecutor(CommandConstructor.get())};
 
