@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 
-
+ILogger* Logger::LoggerInstance = nullptr;
 
 void Logger::Log(std::string log, LogType logType)
 {

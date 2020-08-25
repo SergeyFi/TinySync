@@ -15,34 +15,30 @@
 void InitCommands(ICommandConstructor* CommandConstructor, ISync* SyncManager, IOutputManager* OutputManager)
 {
     CommandConstructor->AddCommand<CommandVersion>(
-            {"-V", "--version"} ,"Version", tinySyncVersion, Priority(0), ArgCount(0), OutputManager);
+            {"version"} ,"Version", tinySyncVersion, Priority(0), ArgCount(0), OutputManager);
 
 
     CommandConstructor->AddCommand<CommandAddOrigin>(
-            {"-O", "--origin"} ,"Origin", Priority(1), ArgCount(1), SyncManager);
+            {"origin"} ,"Origin", Priority(1), ArgCount(1), SyncManager);
 
 
     CommandConstructor->AddCommand<CommandAddTarget>(
-            {"-T", "--target"} ,"Target", Priority(1), ArgCount(1), SyncManager);
+            {"target"} ,"Target", Priority(1), ArgCount(1), SyncManager);
 
 
     CommandConstructor->AddCommand<CommandSync>(
-            {"-S", "--sync"} ,"Sync", Priority(3), ArgCount(0), SyncManager);
+            {"sync"} ,"Sync", Priority(3), ArgCount(0), SyncManager);
 
 
     CommandConstructor->AddCommand<CommandBalance>(
-            {"-B", "--balance"} ,"Balance", Priority(3), ArgCount(0), SyncManager);
+            {"balance"} ,"Balance", Priority(3), ArgCount(0), SyncManager);
 
 
     CommandConstructor->AddCommand<CommandCleanTarget>(
-            {"-C", "--clean"} ,"Clean", Priority(2), ArgCount(0), SyncManager);
+            {"clean"} ,"Clean", Priority(2), ArgCount(0), SyncManager);
 
 
     CommandConstructor->AddCommand<CommandHelp>(
-            {"-H", "--help"} ,"Help", Priority(0), ArgCount(0), OutputManager);
-
-
-    CommandConstructor->AddCommand<CommandSyncUpdate>(
-            {"-SU", "--syncUpdate"} ,"SyncUpdate", Priority(3), ArgCount(0), SyncManager);
+            {"help"} ,"Help", Priority(0), ArgCount(0), OutputManager);
 
 }

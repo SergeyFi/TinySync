@@ -1,5 +1,5 @@
 ﻿#include "SyncManager.h"
-#include "../Logger/GetLogger.h"
+#include "../Logger/Logger.h"
 #include <filesystem>
 
 
@@ -34,7 +34,7 @@ void SyncManager::CleanTarget()
 
         if (error)
         {
-            GetLogger::LoggerGet()->Log(error.message(), LogType::error);
+            Logger::GetLogger()->Log(error.message(), LogType::error);
         }
     }
 }
@@ -49,7 +49,7 @@ bool SyncManager::OriginPathCheck()
 {
     if (origin.empty())
     {
-        GetLogger::LoggerGet()->Log("Origin path is empty.", LogType::error);
+        Logger::GetLogger()->Log("Origin path is empty.", LogType::error);
         return false;
     }
 
@@ -58,7 +58,7 @@ bool SyncManager::OriginPathCheck()
     std::error_code error;
     if (!fs::exists(origin, error))
     {
-        GetLogger::LoggerGet()->Log("Origin path is incorrect", LogType::error);
+        Logger::GetLogger()->Log("Origin path is incorrect", LogType::error);
         return false;
     }
 
@@ -82,7 +82,7 @@ bool SyncManager::TargetPathCheck()
 {
     if (target.empty())
     {
-        GetLogger::LoggerGet()->Log("Target path is empty.", LogType::error);
+        Logger::GetLogger()->Log("Target path is empty.", LogType::error);
         return false;
     }
 
@@ -91,7 +91,7 @@ bool SyncManager::TargetPathCheck()
     std::error_code error;
     if (!fs::exists(target, error))
     {
-        GetLogger::LoggerGet()->Log("Target path is incorrect.", LogType::error);
+        Logger::GetLogger()->Log("Target path is incorrect.", LogType::error);
         return false;
     }
 

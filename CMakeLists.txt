@@ -28,8 +28,6 @@ add_executable(TinySync
         Logger/ILogger.h
         Logger/Logger.cpp
         Logger/Logger.h
-        Logger/GetLogger.h
-        Logger/GetLogger.cpp
         Commands/ICommand.h
         Commands/CommandAddOrigin.cpp
         Commands/CommandAddOrigin.h

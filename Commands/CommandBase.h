@@ -2,7 +2,7 @@
 
 #include "ICommand.h"
 
-#include "../Logger/GetLogger.h"
+#include "../Logger/Logger.h"
 #include "Priority.h"
 #include "ArgumentCount.h"
 #include "../DataTypes/DataTypes.h"

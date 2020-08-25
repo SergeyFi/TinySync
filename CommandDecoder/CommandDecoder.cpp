@@ -1,7 +1,7 @@
 ﻿#include "CommandDecoder.h"
 #include <vector>
 
-#include "../Logger/GetLogger.h"
+#include "../Logger/Logger.h"
 #include "../DataTypes/DataTypes.h"
 
 CommandDecoder::CommandDecoder(ICommandExecutor* NewCommandExecutor, ICommandConstructor* NewCommandConstructor)
@@ -65,7 +65,7 @@ bool CommandDecoder::CheckCommand(std::string& command)
     {
         if (commandsMap.count(command) == 0)
         {
-            GetLogger::LoggerGet()->Log("Command '" + command + "' does not exist.", LogType::error);
+            Logger::GetLogger()->Log("Command '" + command + "' does not exist.", LogType::error);
 
             return false;
         }
