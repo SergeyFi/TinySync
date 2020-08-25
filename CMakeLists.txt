@@ -59,4 +59,4 @@ add_executable(TinySync
         ADBManager/FileData.h
         Commands/ArgumentCount.h
         Commands/Priority.h
-        DataTypes/DataTypes.h)
+        DataTypes/DataTypes.h ComandInitialization.h)
