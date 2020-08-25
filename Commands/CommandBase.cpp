@@ -10,11 +10,16 @@ CommandFullName CommandBase::GetCommandsList() const
     return commandFullName;
 }
 
-void CommandBase::ArgumentCountWarning(int argumentsGiven)
+void CommandBase::ArgumentCountWarning(int argumentsGiven, std::string newCommandName)
 {
+    if (newCommandName.empty())
+    {
+        newCommandName = commandName;
+    }
+
     if (commandArgumentCount != argumentsGiven)
     {
-        Logger::GetLogger()->Log("For command '" + commandName + "' expected " + std::to_string(commandArgumentCount)
+        Logger::GetLogger()->Log("For command '" + newCommandName + "' expected " + std::to_string(commandArgumentCount)
         + " arguments, given " + std::to_string(argumentsGiven), LogType::warning);
     }
 }

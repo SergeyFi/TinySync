@@ -3,15 +3,21 @@
 
 void CommandSync::Execute()
 {
-    if (commandArguments[0] == "-u")
-    {
-        SyncManager->SyncUpdate();
-    }
+    const std::string syncUpdate = "-u";
 
+    if(commandArguments.empty())
+    {
+        SyncManager->Sync();
+    }
     else
     {
-        ArgumentCountWarning(commandArguments.size());
+        if (commandArguments[0] == syncUpdate)
+        {
+            ArgumentCountWarning(commandArguments.size() - 1, commandName + " " + syncUpdate);
+            SyncManager->SyncUpdate();
+            return;
+        }
 
-        SyncManager->Sync();
+        ArgumentCountWarning(commandArguments.size());
     }
 }

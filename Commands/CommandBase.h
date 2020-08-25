@@ -43,5 +43,5 @@ protected:
 
     CArg commandArguments;
 
-    void ArgumentCountWarning(int argumentsGiven);
+    void ArgumentCountWarning(int argumentsGiven, std::string newCommandName = "");
 };
