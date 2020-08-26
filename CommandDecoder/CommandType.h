@@ -4,8 +4,6 @@
 #include <vector>
 #include <set>
 
-using CommandFullName = std::set<std::string>;
-
 struct Command
 {
     std::set<std::string> commandFullName;

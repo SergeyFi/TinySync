@@ -9,7 +9,7 @@
 #include "CommandDecoder/ICommandDecoder.h"
 #include "CommandDecoder/CommandDecoder.h"
 
-#include "ComandInitialization.h"
+#include "CommandInitialization.h"
 
 int main(int argc, char* argv[])
 {

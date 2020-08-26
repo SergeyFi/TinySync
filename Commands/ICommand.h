@@ -3,7 +3,9 @@
 #include <vector>
 #include <string>
 #include <set>
+
 #include "../CommandExecutor/ICommandExecutor.h"
+#include "../DataTypes/DataTypes.h"
 
 class ICommand
 {
@@ -13,12 +15,12 @@ public:
 
     virtual void AddCommandArguments(std::vector<std::string> arguments) = 0;
 
-    virtual CommandFullName GetCommandsList() const = 0;
+    virtual CFullName GetCommandsList() const = 0;
 
     virtual int GetCommandPriority() const = 0;
 
-    virtual std::string GetCommandName() const = 0;
+    virtual CName GetCommandName() const = 0;
 
-    virtual void SetCommandFullName(std::set<std::string> fullName) = 0;
+    virtual void SetCommandFullName(CFullName fullName) = 0;
 
 };

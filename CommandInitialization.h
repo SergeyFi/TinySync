@@ -9,6 +9,7 @@
 #include "Commands/CommandCleanTarget.h"
 #include "Commands/CommandVersion.h"
 #include "Commands/CommandHelp.h"
+#include "Commands/CommandSyncUpdate.h"
 
 
 void InitCommands(ICommandConstructor* CommandConstructor, ISync* SyncManager, IOutputManager* OutputManager)
@@ -39,5 +40,9 @@ void InitCommands(ICommandConstructor* CommandConstructor, ISync* SyncManager, I
 
     CommandConstructor->AddCommand<CommandHelp>(
             {"help"} ,"Help", Priority(0), ArgCount(0), OutputManager);
+
+
+    CommandConstructor->AddCommand<CommandSyncUpdate>(
+            {"sync", "-u"} ,"Sync -u", Priority(3), ArgCount(0), SyncManager);
 
 }

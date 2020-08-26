@@ -6,6 +6,7 @@
 
 #include "../Commands/CommandBase.h"
 #include "../DataTypes/DataTypes.h"
+#include "../DataTypes/CommandConstructorType.h"
 
 class ICommandConstructor
 {

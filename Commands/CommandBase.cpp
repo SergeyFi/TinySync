@@ -5,7 +5,7 @@ int CommandBase::GetCommandPriority() const
     return commandPriority;
 }
 
-CommandFullName CommandBase::GetCommandsList() const
+CFullName CommandBase::GetCommandsList() const
 {
     return commandFullName;
 }
@@ -24,7 +24,7 @@ void CommandBase::ArgumentCountWarning(int argumentsGiven, std::string newComman
     }
 }
 
-std::string CommandBase::GetCommandName() const
+CName CommandBase::GetCommandName() const
 {
     return commandName;
 }

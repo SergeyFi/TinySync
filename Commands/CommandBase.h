@@ -21,11 +21,11 @@ public:
         commandArguments = std::move(arguments);
     }
 
-    CommandFullName GetCommandsList() const override;
+    CFullName GetCommandsList() const override;
 
     int GetCommandPriority() const override;
 
-    std::string GetCommandName() const override;
+    CName GetCommandName() const override;
 
     void AddCommandArguments(std::vector<std::string> arguments) override;
 
