@@ -59,4 +59,4 @@ add_executable(TinySync
         CommandInitialization.h
         Commands/CommandSyncUpdate.cpp
         Commands/CommandSyncUpdate.h
-        DataTypes/CommandConstructorType.h)
+        DataTypes/CommandConstructorType.h DataTypes/DataTypeBase.cpp DataTypes/DataTypeBase.h DataTypes/CFullName.h DataTypes/CName.h DataTypes/CArg.h)
