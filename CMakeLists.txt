@@ -64,5 +64,5 @@ add_executable(TinySync
         DataTypes/DataTypeBase.h
         DataTypes/CFullName.h
         DataTypes/CName.h
-        DataTypes/CArg.h
+        DataTypes/CArgument.h
         DataTypes/CConstructor.h)
